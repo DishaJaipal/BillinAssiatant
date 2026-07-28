@@ -11,8 +11,8 @@
     <meta name="theme-color" content="#0B8A6A" />
     <link rel="manifest" href="manifest.webmanifest" />
 
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../pages/voiceBilling/billing.css" />
+    <link rel="stylesheet" href="../voiceBilling/billing.css" />
+    <link rel="stylesheet" href="../../styles.css" />
 
     
   </head>
@@ -22,17 +22,17 @@
       <header>
         <div class="top-bar">
           <div class="top-bar-left">
-            <a href="../html/index.html" class="back-button">
-              <img src=".../assets/icons/left.png" alt="Back to dashboard" />
+            <a href="../../index.html" class="back-button">
+              <img src="../../assets/icons/left.png" alt="Back to dashboard" />
             </a>
             <span class="logo">Billing</span>
           </div>
           <div class="top-bar-right">
             <!-- <button class="notification-button" id="notifications" type="button">
-            <img src=".../assets/icons/notification.png" alt="Notifications">
+            <img src="../../assets/icons/notification.png" alt="Notifications">
           </button> -->
             <button class="profile-button" id="profile" type="button">
-              <img src=".../assets/icons/user.png" alt="Profile" />
+              <img src="../../assets/icons/user.png" alt="Profile" />
             </button>
           </div>
         </div>
@@ -42,7 +42,7 @@
           <div class="voice-section">
             <div class="voice-button-container">
               <button class="voice-button" id="voiceButton" type="button">
-                <img src=".../assets/icons/mic2.png" alt="Start voice billing" />
+                <img src="../../assets/icons/mic2.png" alt="Start voice billing" />
               </button>
 
               <p class="voice-button-text">
@@ -75,7 +75,7 @@
               <h2>Bill Items</h2>
 
               <div class="add-item-button-container">
-                <img src=".../assets/icons/plus2.png" alt="Add-button" />
+                <img src="../../assets/icons/plus2.png" alt="Add-button" />
                 <button
                   class="add-item-button"
                   id="openPopupButton"
@@ -126,7 +126,7 @@
                   type="button"
                 >
                   Discount
-                  <img src=".../assets/icons/pencil.png" alt="" />
+                  <img src="../../assets/icons/pencil.png" alt="" />
                 </button>
 
                 <span id="bill-discount">-₹12.64</span>
@@ -148,7 +148,7 @@
                 id="print-bill-button"
                 type="button"
               >
-                <img src=".../assets/icons/printing.png" alt="" />
+                <img src="../../assets/icons/printing.png" alt="" />
                 <span>Print</span>
               </button>
 
@@ -157,7 +157,7 @@
                 id="whatsapp-bill-button"
                 type="button"
               >
-                <img src=".../assets/icons/share.png" alt="" />
+                <img src="../../assets/icons/share.png" alt="" />
                 <span>WhatsApp</span>
               </button>
             </div>
@@ -174,7 +174,7 @@
           <div class="nav-item">
             <button id="menuToggle">
               <div class="nav-icon">
-                <img src=".../assets/icons/menu.png" alt="" />
+                <img src="../../assets/icons/menu.png" alt="" />
               </div>
 
               <div class="nav-label">
@@ -186,10 +186,10 @@
             <button
               class="dashboard-active"
               type="button"
-              onclick="window.location.href = '../html/index.html'"
+              onclick="window.location.href = '../../index.html'"
             >
               <div class="nav-icon">
-                <img src=".../assets/icons/dashboard.png" alt="" />
+                <img src="../../assets/icons/dashboard.png" alt="" />
               </div>
 
               <div class="nav-label">
@@ -204,7 +204,7 @@
               onclick="window.location.href = ''"
             >
               <div class="nav-icon">
-                <img src=".../assets/icons/box.png" alt="" />
+                <img src="../../assets/icons/box.png" alt="" />
               </div>
 
               <div class="nav-label">
@@ -216,10 +216,10 @@
             <button
               class="billing"
               type="button"
-              onclick="window.location.href = '../html/voiceBilling.html'"
+              onclick="window.location.href = ''"
             >
               <div class="nav-icon">
-                <img src=".../assets/icons/bill.png" alt="" />
+                <img src="../../assets/icons/bill.png" alt="" />
               </div>
 
               <div class="nav-label">
@@ -234,7 +234,7 @@
               onclick="window.location.href = ''"
             >
               <div class="nav-icon">
-                <img src=".../assets/icons/user.png" alt="" />
+                <img src="../../assets/icons/user.png" alt="" />
               </div>
 
               <div class="nav-label">
@@ -250,10 +250,10 @@
           <button
             class="dashboard"
             type="button"
-            onclick="window.location.href = '../html/index.html'"
+            onclick="window.location.href = '../../index.html'"
           >
             <div class="nav-icon">
-              <img src=".../assets/icons/dashboard.png" alt="" />
+              <img src="../../assets/icons/dashboard.png" alt="" />
             </div>
 
             <div class="nav-label">
@@ -269,7 +269,7 @@
             onclick="window.location.href = ''"
           >
             <div class="nav-icon">
-              <img src=".../assets/icons/box.png" alt="" />
+              <img src="../../assets/icons/box.png" alt="" />
             </div>
 
             <div class="nav-label">
@@ -282,10 +282,10 @@
           <button
             class="billing active"
             type="button"
-            onclick="window.location.href = '../html/voiceBilling.html'"
+            onclick="window.location.href = ''"
           >
             <div class="nav-icon">
-              <img src=".../assets/icons/bill.png" alt="" />
+              <img src="../../assets/icons/bill.png" alt="" />
             </div>
 
             <div class="nav-label">
@@ -301,7 +301,7 @@
             onclick="window.location.href = ''"
           >
             <div class="nav-icon">
-              <img src=".../assets/icons/user.png" alt="" />
+              <img src="../../assets/icons/user.png" alt="" />
             </div>
 
             <div class="nav-label">
@@ -434,7 +434,7 @@
               type="button"
               aria-label="Edit ${item.name}"
             >
-              <img src=".../assets/icons/pencil.png" alt="">
+              <img src="../../assets/icons/pencil.png" alt="">
             </button>
     
             <button
@@ -443,7 +443,7 @@
               type="button"
               aria-label="Remove ${item.name}"
             >
-              <img src=".../assets/icons/delete.png" alt="">
+              <img src="../../assets/icons/delete.png" alt="">
             </button>
           </div>
         </td>
@@ -465,6 +465,8 @@
           billItemForm.close();
         }
       });
+
+      const  = document.getElementById("");
 
 
     </script>
