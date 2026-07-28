@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/CSS/Inventorystyle.css.css">
+<script src="../Javascript/Inventory.js" defer></script>
+</head>
+ 
+<body>
+
+  <!-- App- container(Everything starts here) -->
+  <main class="app_container">
+
+    <!-- Header section -->
+    <section class="inventory_section">
+        <div class="left_inventory_section">
+          <img id="backButton"src="../assest/ICONS/left.png"/>
+          <h4>Inventory</h4>
+        </div>
+         <div class="right_inventory_section">
+          <img id="searchButton" src="../assest/ICONS/search.png"/>
+          <button id="addProductButton" type="button">
+          <img  src="../assest/ICONS/add (2).png"/>
+          </button>
+            <div id="addProductPopup" class="popup">
+                <div class="popup-content">
+                  <h2>Add Product</h2>
+
+                  
+                    <input type="text"id="Item" placeholder="Item">
+                    <input type="number"id="cost" placeholder="Cost">
+                    <input type="number"id="Weight" placeholder="Weight">
+                    <input type="number" id="Quantity" placeholder="Quantity">
+                    <select id="status">
+                    <option>Available</option>
+                  <option>Out of Stock</option>
+                  </select>
+
+                    <button id="closePopupButton" type="button">
+                      Close
+                    </button>
+                       <button id="submitButton" type="button">
+                        Submit
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- --------------------------------------------------------------------- -->
+
+<!-- Content section -->
+    <section class="content_section">
+
+      <!-- Search bar container -->
+      <div class="search-container">
+          <div class="search-input-wrapper">
+            <img class="search-icon" src="../assest/ICONS/search.png" alt="Search" />
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search Product"
+            />
+          </div>
+        </div>
+         <!-- Search bar container -->
+
+         <!-- Cards -->
+
+         <div class="card_section">
+          <div class="card_box">
+            <div class="card_box_header">Items IN </div>
+            <div class="card_box_count">03</div>
+          </div>
+          <div class="card_box">
+            <div class="card_box_header">Low Stock</div>
+            <div class="card_box_count">00</div>
+          </div>
+         <div class="card_box">
+            <div class="card_box_header">out of stock</div>
+            <div class="card_box_count">01</div>
+          </div>
+         </div>
+         <!---cards end-->
+
+          <!---table section begins -->
+    <div class="table-container">
+    <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Cost</th>
+                  <th>Weight</th>
+                  <th>Qty</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr>
+                  <td>
+                    <div class="item">
+                      <strong>Rice</strong>
+                      <small>ID: #RIC01</small>
+                    </div>
+                  </td>
+                  <td class="price">₹55</td>
+                  <td class="meta-text">1kg</td>
+                  <td class="meta-text">20</td>
+                  <td><button class="icon-btn" type="button">
+            <img src="../assest/ICONS/tick.png" alt="Tick Icon" />
+          </button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="item">
+                      <strong>Sugar</strong>
+                      <small>ID: #SUG22</small>
+                    </div>
+                  </td>
+                  <td class="price">₹48</td>
+                  <td class="meta-text">500g</td>
+                  <td class="meta-text">35</td>
+                  <td><button class="icon-btn" type="button">
+            <img src="../assest/ICONS/tick.png" alt="Tick Icon" />
+          </button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="item">
+                      <strong>Milk</strong>
+                      <small>ID: #MLK08</small>
+                    </div>
+                  </td>
+                  <td class="price">₹30</td>
+                  <td class="meta-text">500ml</td>
+                  <td class="meta-text">0</td>
+                  <td><button class="icon-btn" type="button">
+            <img src="../assest/ICONS/remove.png" alt="remove Icon" />
+          </button></td>
+                </tr>
+              </tbody>
+            </table>
+</div>
+
+<div class="pagination-container">
+    <div class="pagination-text">
+        Showing 3 of 3 products
+    </div>
+
+    <div class="pagination-buttons">
+        <button class="pagination-btn">
+            <img src="../assest/ICONS/previous.png" alt="Previous">
+        </button>
+
+        <button class="pagination-btn">
+            <img src="../assest/ICONS/next.png" alt="Next">
+        </button>
+    </div>
+</div>
+
+
+    </section>
+
+      <!---table section ends -->
+
+
+
+    <!--- ----------Bottom nav------------------------ -->
+     <nav class="navbar">
+      <div class="nav_button" id="dashboardButton">
+        <img src="../assest/ICONS/dashboard_main.png"/>
+        <span>Dashboard
+        </span>
+      </div>
+      <div class="nav_button" id="iventoryButton">
+        <img src="../assest/ICONS/Inventory.png"/>
+        <span>Inventory
+        </span>
+      </div>
+      <div class="nav_button"id="billingButton">
+        
+        <img src="../assest/ICONS/Billing Icon.png"/>
+        <span>Billing</span>
+        
+      </div>
+      <div class="nav_button"id="ProfileButton">
+        <img src="../assest/ICONS/user Profile.png"/>
+        <span>Profile
+        </span>
+      </div>
+     </nav>
+     <!-- --------------- nav section ends -->
+  </main>
+  
+</body>
+</html>
