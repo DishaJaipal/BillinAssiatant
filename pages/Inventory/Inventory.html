@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/CSS/Inventorystyle.css.css">
+  <link rel="stylesheet" href="/BillinAssiatant/pages/Inventory/Inventory.css">
+  <link rel="stylesheet" href="/BillinAssiatant/styles.css">
 <script src="../Javascript/Inventory.js" defer></script>
 </head>
  
@@ -51,11 +52,13 @@
     </section>
     <!-- --------------------------------------------------------------------- -->
 
-<!-- Content section -->
-    <section class="content_section">
+    <!-- Content section -->
+    <section class="main-container">
 
-      <!-- Search bar container -->
-      <div class="search-container">
+      <div class="main-content">
+
+        <!-- Search bar container -->
+        <div class="search-container">
           <div class="search-input-wrapper">
             <img class="search-icon" src="../assest/ICONS/search.png" alt="Search" />
             <input
@@ -66,11 +69,11 @@
             />
           </div>
         </div>
-         <!-- Search bar container -->
-
-         <!-- Cards -->
-
-         <div class="card_section">
+           <!-- Search bar container -->
+  
+           <!-- Cards -->
+  
+        <div class="card_section">
           <div class="card_box">
             <div class="card_box_header">Items IN </div>
             <div class="card_box_count">03</div>
@@ -83,23 +86,23 @@
             <div class="card_box_header">out of stock</div>
             <div class="card_box_count">01</div>
           </div>
-         </div>
-         <!---cards end-->
-
-          <!---table section begins -->
-    <div class="table-container">
-    <table>
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Cost</th>
-                  <th>Weight</th>
-                  <th>Qty</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody id="tableBody">
-                <tr>
+        </div>
+           <!---cards end-->
+  
+            <!---table section begins -->
+          <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Cost</th>
+                <th>Weight</th>
+                <th>Qty</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
                   <td>
                     <div class="item">
                       <strong>Rice</strong>
@@ -111,9 +114,9 @@
                   <td class="meta-text">20</td>
                   <td><button class="icon-btn" type="button">
             <img src="../assest/ICONS/tick.png" alt="Tick Icon" />
-          </button></td>
-                </tr>
-                <tr>
+                    </button></td>
+              </tr>
+              <tr>
                   <td>
                     <div class="item">
                       <strong>Sugar</strong>
@@ -126,8 +129,8 @@
                   <td><button class="icon-btn" type="button">
             <img src="../assest/ICONS/tick.png" alt="Tick Icon" />
           </button></td>
-                </tr>
-                <tr>
+              </tr>
+              <tr>
                   <td>
                     <div class="item">
                       <strong>Milk</strong>
@@ -140,26 +143,80 @@
                   <td><button class="icon-btn" type="button">
             <img src="../assest/ICONS/remove.png" alt="remove Icon" />
           </button></td>
-                </tr>
-              </tbody>
-            </table>
-</div>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
 
-<div class="pagination-container">
-    <div class="pagination-text">
-        Showing 3 of 3 products
-    </div>
-
-    <div class="pagination-buttons">
-        <button class="pagination-btn">
-            <img src="../assest/ICONS/previous.png" alt="Previous">
-        </button>
-
-        <button class="pagination-btn">
-            <img src="../assest/ICONS/next.png" alt="Next">
-        </button>
-    </div>
-</div>
+      <aside class="sidebar-desktop" id="sidebar">
+        <div class="nav-item">
+          <button id="menuToggle" >
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/menu.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Menu</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="dashboard-active" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/dashboard.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Dashboard</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="inventory" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/box.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Inventory</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="billing" type="button"
+            onclick="window.location.href='./pages/voiceBilling/voiceBilling.html'">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/bill.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Billing</span>
+            </div>
+  
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="profile" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/user.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Profile</span>
+            </div>
+  
+          </button>
+        </div> 
+      </aside>
 
 
     </section>
@@ -169,29 +226,62 @@
 
 
     <!--- ----------Bottom nav------------------------ -->
-     <nav class="navbar">
-      <div class="nav_button" id="dashboardButton">
-        <img src="../assest/ICONS/dashboard_main.png"/>
-        <span>Dashboard
-        </span>
-      </div>
-      <div class="nav_button" id="iventoryButton">
-        <img src="../assest/ICONS/Inventory.png"/>
-        <span>Inventory
-        </span>
-      </div>
-      <div class="nav_button"id="billingButton">
-        
-        <img src="../assest/ICONS/Billing Icon.png"/>
-        <span>Billing</span>
-        
-      </div>
-      <div class="nav_button"id="ProfileButton">
-        <img src="../assest/ICONS/user Profile.png"/>
-        <span>Profile
-        </span>
-      </div>
-     </nav>
+     <nav class="bottom-nav">
+        <div class="nav-item">
+          <button class="dashboard active" type="button"
+            onclick="window.location.href='../html/index.html'">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/dashboard.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Dashboard</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="inventory" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/box.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Inventory</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="billing" type="button"
+            onclick="window.location.href='./pages/voiceBilling/voiceBilling.html'">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/bill.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Billing</span>
+            </div>
+  
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="profile" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src="./assets/icons/user.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Profile</span>
+            </div>
+  
+          </button>
+        </div>
+      </nav>
      <!-- --------------- nav section ends -->
   </main>
   
