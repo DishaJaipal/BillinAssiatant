@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>ProShop Dashboard</title>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0B8A6A">
+  <link rel="manifest" href="../manifest.webmanifest">
+
+  
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../dashboard.css">
+
+  <!-- <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-width: 20rem;
+      padding-bottom: 6rem;
+      font-family: Inter, Arial, sans-serif;
+      color: #202522;
+      background-color: #EDF1EF;
+      position: relative;
+      overscroll-behavior: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .main-container {
+      width: 100%;
+      /* min-height: 100vh; */
+      margin: 0 auto;
+      background-color: #F7F9F8;
+      position:relative;
+    }
+
+    .app-shell {
+      position: sticky;
+
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      min-height: 3.7rem;
+      padding: 0.7rem 1rem;
+
+      background-color: #FFFFFF;
+      border-bottom: 0.0625rem solid #E4E8E6;
+      box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.06);
+    }
+
+    .top-bar-left,
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .top-bar-left {
+      gap: 0.65rem;
+    }
+
+    .top-bar-right {
+      gap: 0.35rem;
+    }
+
+    .store-icon {
+      width: 1.55rem;
+      height: 1.55rem;
+      object-fit: contain;
+    }
+
+    .logo {
+      color: #0B8A6A;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .header-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.35rem;
+      height: 2.35rem;
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .header-button img {
+      width: 1.3rem;
+      height: 1.3rem;
+      object-fit: contain;
+    }
+    .header-button:hover{
+      background-color: #dddfe1;
+    }
+
+
+    .dashboard-content {
+      padding: 1rem;
+      padding-bottom: 0;
+    }
+
+    .card-welcome {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 10.5rem;
+      padding: 1.15rem 1.35rem;
+
+      color: #FFFFFF;
+      background-color: #0B8A6A;
+      border-radius: 0.7rem;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 105, 72, 0.18);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      width: 70%;
+    }
+
+    .card-date {
+      margin: 0 0 0.4rem;
+      color: #D9F3EA;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .welcome-title {
+      margin: 0;
+      color: #FFFFFF;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 1.18;
+    }
+
+    /* .card-status-row {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+
+      margin-top: 2.35rem;
+      color: #E7FBF3;
+      font-size: 0.85rem;
+      font-weight: 600;
+    } */
+
+    /* .status-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: #71E7AA;
+    } */
+
+    .stats-row {
+      display: flex;
+      gap: 0.75rem;
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 0;
+      min-height: 5.25rem;
+      padding: 0.9rem;
+
+      background-color: #F2F4F6;
+      border: 0.0625rem solid #E4E8E6;
+      border-radius: 0.65rem;
+    }
+
+    .stat-label {
+      margin: 0 0 0.45rem;
+      color: #53605A;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      margin: 0;
+      color: #007357;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .stat-value-container {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .low-stock-number {
+      color: #BA1A1A;
+    }
+
+    .stat-items-label {
+      margin: 0;
+      color: #53605A;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .section-heading {
+      margin: 1.7rem 0 0.85rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: #3D4846;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .card-action {
+      width: 100%;
+      margin-bottom: 1rem;
+      overflow: hidden;
+
+      background-color: #FFFFFF;
+      border: 0.0625rem solid #EDF0EE;
+      border-radius: 0.7rem;
+      box-shadow: 0 0.18rem 0.65rem rgba(0, 0, 0, 0.06);
+    }
+
+    .card-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 6rem;
+      padding: 1rem;
+
+      color: #202522;
+      text-decoration: none;
+    }
+
+    .action-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .card-icon {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+
+      width: 3.6rem;
+      height: 3.6rem;
+      border-radius: 0.55rem;
+    }
+
+    .inventory-icon-background {
+      background-color: #E0E7FF;
+    }
+
+    .billing-icon-background {
+      background-color: #FFE1B4;
+    }
+
+    .card-icon img {
+      width: 1.7rem;
+      height: 1.7rem;
+      object-fit: contain;
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .card-title {
+      margin: 0 0 0.2rem;
+      color: #202522;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .card-subtitle {
+      color: #5C6661;
+      font-size: 0.88rem;
+    }
+
+    .card-arrow img {
+      width: 1.25rem;
+      height: 1.25rem;
+      opacity: 0.55;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+    
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    
+      width: 100%;
+      max-width: (100% - 2rem);
+      min-height: 5rem;
+      margin: 0 auto;
+      padding: 0.35rem 0.45rem;
+    
+      background-color: #FCFCFC;
+      border-top: 0.0625rem solid #E4E8E6;
+      box-shadow: 0 -0.25rem 0.45rem rgba(0, 0, 0, 0.07);
+    }
+    
+    .nav-item {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+    
+    .nav-item button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+    
+      width: 100%;
+      min-height: 3rem;
+      padding: 0.3rem;
+    
+      color: #35403A;
+      font-size: 0.75rem;
+      font-weight: 500;
+    
+      background-color: transparent;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+    
+    .nav-item button:is(.active,:hover) {
+      color: #FFFFFF;
+      font-weight: 700;
+      background-color: #0B8A6A;
+    }
+    
+    .nav-icon img {
+      width: 1.45rem;
+      height: 1.45rem;
+      object-fit: contain;
+    }
+    
+    .nav-label {
+      font-size: 0.75rem;
+      line-height: 1;
+    }
+
+    .footer-section{
+      font-size: 0.75rem;
+      font-family: inherit;
+      width: 100%;
+      margin:0;
+      padding-top:30%;
+      /* background-color: #0B8A6A;
+      color: #FFFFFF; */
+      
+    }
+    .footer {
+      background-color: #0B8A6A;
+      color: #FFFFFF;
+    }
+
+    
+
+    @media (max-width: 1023px) {
+
+      .sidebar-desktop{
+      display:none;
+    }
+
+    }
+    
+    @media (min-width: 1024px) {
+      body {
+        padding-bottom: 0;
+      }
+    
+      .main-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row-reverse;
+        overflow-x: auto;      
+      }
+    
+      .bottom-nav {
+        display: none;
+      }
+    
+      .top-bar-left .back-button {
+        display: none;
+      }
+    
+      .dashboard-content {
+        flex: 1 1 auto;
+        min-width: 20rem;       
+      }
+    
+      .sidebar-desktop {
+        position: relative;
+        top: 0;
+        z-index: 20;
+        flex: 0 0 auto;         
+    
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    
+        width: 4rem;             
+        min-height: 5rem;
+        padding: 1rem 0.45rem;
+        overflow: hidden;        
+        background-color: #FCFCFC;
+        border-left: 0.0625rem solid #E4E8E6;
+        box-shadow: 0.25rem 0 0.45rem rgba(0, 0, 0, 0.05);
+    
+        transition: 0.3s ease; 
+      }
+      .sidebar-desktop .nav-item button {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        white-space: nowrap;
+      
+        width: 100%;
+        padding: 0.75rem 0.95rem;       
+      }
+
+      .sidebar-desktop.expanded {
+        width: 12rem;             
+      }
+    
+      .sidebar-desktop .nav-label {
+        display: block;
+        opacity: 0;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: opacity 0.25s ease, max-width 0.25s ease;
+      }
+    
+      .sidebar-desktop.expanded .nav-label {
+        opacity: 1;
+        max-width: 10rem;
+      }
+
+      .sidebar-desktop .nav-item {
+        flex: 0 0 auto;
+        gap : 1rem;
+      }
+
+    }
+
+  </style> -->
+  
+</head>
+
+<body>
+  <div class="app-shell">
+    <header>
+      <div class="top-bar">
+
+        <div class="top-bar-left">
+          <img class="store-icon" src=".../assets/icons/store.png" alt="ProShop logo">
+          <span class="logo">ProShop</span>
+        </div>
+        <div class="top-bar-right">
+          <!-- <button class="header-button" type="button">
+            <img src="icons/notification.png" alt="Notifications">
+          </button> -->
+          <button class="header-button" type="button">
+            <img src=".../assets/icons/user.png" alt="Profile">
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <div class="main-container">
+      
+      <div class="dashboard-content">
+
+        <div class="card-welcome">
+          <div class="card-content">
+            <p class="card-date" id="cardDate"></p>
+
+            <h1 class="welcome-title">
+              Welcome Back,<br>
+              ProShop
+            </h1>
+
+            <!-- <div class="card-status-row">
+              <span class="status-dot"></span>
+              <span>Shop status: Online</span>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="stats-row">
+
+          <div class="stat-card">
+            <p class="stat-label">Today's Sales</p>
+            <p class="stat-value" id="stat-sales"></p>
+          </div>
+
+          <div class="stat-card">
+            <p class="stat-label">Low Stock</p>
+
+            <div class="stat-value-container">
+              <p class="stat-value low-stock-number" id="stat-low-stock-count"></p>
+              <p class="stat-items-label">items</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="section-heading">
+          <h2>Quick Actions</h2>
+        </div>
+
+        <div class="card-action">
+          <a href="" class="card-link">
+
+            <div class="action-left">
+              <div class="card-icon inventory-icon-background">
+                <img src=".../assets/icons/box.png" alt="Inventory">
+              </div>
+
+              <div class="card-text">
+                <h2 class="card-title">Inventory</h2>
+                <span class="card-subtitle">Manage your stock</span>
+              </div>
+            </div>
+
+            <div class="card-arrow">
+              <img src=".../assets/icons/chevron.png" alt="">
+            </div>
+
+          </a>
+        </div>
+
+        <div class="card-action">
+          <a href="../html/voiceBilling.html" class="card-link">
+
+            <div class="action-left">
+              <div class="card-icon billing-icon-background">
+                <img src=".../assets/icons/mic.png" alt="Billing">
+              </div>
+
+              <div class="card-text">
+                <h2 class="card-title">Billing</h2>
+                <span class="card-subtitle">Create a bill by speaking</span>
+              </div>
+            </div>
+
+            <div class="card-arrow">
+              <img src=".../assets/icons/chevron.png" alt="">
+            </div>
+
+          </a>
+        </div>
+        <div class="footer-section">
+          <footer>
+            <Span>Copyright @2026</Span>
+          </footer>
+        </div>
+      </div>
+        
+
+      <aside class="sidebar-desktop" id="sidebar">
+        <div class="nav-item">
+          <button id="menuToggle" >
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/menu.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Menu</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="dashboard-active" type="button"
+            onclick="window.location.href='../html/index.html'">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/dashboard.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Dashboard</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="inventory" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/box.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Inventory</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="billing" type="button"
+            onclick="window.location.href='../html/voiceBilling.html'">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/bill.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Billing</span>
+            </div>
+  
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="profile" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/user.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Profile</span>
+            </div>
+  
+          </button>
+        </div> 
+      </aside>
+      
+    </div>
+    <nav class="bottom-nav">
+        <div class="nav-item">
+          <button class="dashboard active" type="button"
+            onclick="window.location.href='../html/index.html'">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/dashboard.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Dashboard</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="inventory" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/box.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Inventory</span>
+            </div>
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="billing" type="button"
+            onclick="window.location.href='../html/voiceBilling.html'">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/bill.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Billing</span>
+            </div>
+  
+          </button>
+        </div>
+        <div class="nav-item">
+          <button class="profile" type="button"
+            onclick="window.location.href=''">
+  
+            <div class="nav-icon">
+              <img src=".../assets/icons/user.png" alt="">
+            </div>
+  
+            <div class="nav-label">
+              <span>Profile</span>
+            </div>
+  
+          </button>
+        </div>
+      </nav>
+
+    <!-- <footer>
+      <Span>Copyright @2026</Span>
+    </footer> -->
+
+  </div>
+  <script>
+    const menuToggle=document.getElementById("menuToggle");
+    const sidebar=document.getElementById("sidebar");
+  
+    menuToggle.addEventListener('click',()=>{
+      sidebar.classList.toggle('expanded');
+    });
+
+    // document.addEventListener('DOMContentLoaded',function(){
+      const cardDate=new Date();
+      const days=["Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"];
+      const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      const dayName=days[cardDate.getDay()];
+      const day=cardDate.getDate();
+      const month=months[cardDate.getMonth()];
+      const year=cardDate.getFullYear();
+      const formatted=`${dayName}, ${day} ${month} ${year}`;
+      document.getElementById("cardDate").textContent=formatted;
+    // });
+
+    // function updateStatCards(){
+    //   const sales = 120;
+    //   const stock = 600;
+    //   document.getElementById("stat-sales").textContent=sales;
+    //   console.log("Function call");
+    //   document.getElementById("stat-low-stock-count").textContent=stock;
+    //  }
+
+    //updateStatCards=(60.00,12);
+
+  const sales = 120;
+  document.getElementById("stat-sales").textContent="Rs "+sales;
+  const stock = 120;
+  document.getElementById("stat-low-stock-count").textContent=stock;
+    
+  </script>
+</body>
+</html>

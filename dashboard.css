@@ -1,0 +1,206 @@
+/* ============================================================
+   dashboard.css
+   Page-specific rules for index.html (the dashboard).
+   Load AFTER common.css.
+   ============================================================ */
+
+/* NOTE: .app-shell wraps both pages' HTML, but only index.html's original
+   stylesheet styled it (voiceBilling.html's <div class="app-shell"> was
+   unstyled). Kept here, page-scoped, to preserve each page's original
+   behavior exactly rather than silently adding this to the billing page. */
+.app-shell {
+  position: sticky;
+}
+
+.store-icon {
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
+}
+
+.dashboard-content {
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.card-welcome {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 10.5rem;
+  padding: 1.15rem 1.35rem;
+
+  color: #FFFFFF;
+  background-color: #0B8A6A;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(11, 138, 106, 0.18);
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  width: 70%;
+}
+
+.card-date {
+  margin: 0 0 0.4rem;
+  color: #D9F3EA;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.welcome-title {
+  margin: 0;
+  color: #FFFFFF;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.stats-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 0;
+  min-height: 5.25rem;
+  padding: 0.9rem;
+
+  background-color: #F2F4F6;
+  border: 0.0625rem solid #E4E8E6;
+  border-radius: 0.65rem;
+}
+
+.stat-label {
+  margin: 0 0 0.45rem;
+  color: #53605A;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  margin: 0;
+  color: #007357;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.stat-value-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.low-stock-number {
+  color: #BA1A1A;
+}
+
+.stat-items-label {
+  margin: 0;
+  color: #53605A;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.section-heading {
+  margin: 1.7rem 0 0.85rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  color: #3D4846;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.card-action {
+  width: 100%;
+  margin-bottom: 1rem;
+  overflow: hidden;
+
+  background-color: #FFFFFF;
+  border: 0.0625rem solid #EDF0EE;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.18rem 0.65rem rgba(0, 0, 0, 0.06);
+}
+
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 6rem;
+  padding: 1rem;
+
+  color: #202522;
+  text-decoration: none;
+}
+
+.action-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.card-icon {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 0.55rem;
+}
+
+.inventory-icon-background {
+  background-color: #E0E7FF;
+}
+
+.billing-icon-background {
+  background-color: #FFE1B4;
+}
+
+.card-icon img {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card-title {
+  margin: 0 0 0.2rem;
+  color: #202522;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  color: #5C6661;
+  font-size: 0.88rem;
+}
+
+.card-arrow img {
+  width: 1.25rem;
+  height: 1.25rem;
+  opacity: 0.55;
+}
+
+@media (min-width: 1024px) {
+  .dashboard-content {
+    flex: 1 1 auto;
+    min-width: 20rem;
+  }
+}

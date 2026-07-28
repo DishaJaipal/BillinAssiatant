@@ -1,0 +1,1163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Billing Assistant</title>
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#0B8A6A" />
+    <link rel="manifest" href="manifest.webmanifest" />
+
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../pages/voiceBilling/billing.css" />
+
+    <!-- <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,body {
+      margin: 0;
+      min-width: 20rem;
+      padding-bottom: 6rem;
+      font-family: Inter, Arial, sans-serif;
+      color: #202522;
+      background-color: #EDF1EF;
+      position: relative;
+      overscroll-behavior: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .main-container {
+      width: 100%;
+      /* min-height: 100vh; */
+      margin: 0 auto;
+      background-color: #F7F9F8;
+      position:relative;
+    }
+
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      min-height: 3rem;
+      padding: 0.7rem 1rem;
+
+      background-color: #FFFFFF;
+      border-bottom: 0.0625rem solid #E4E8E6;
+      box-shadow: 0 0.125rem 0.35rem rgba(0, 0, 0, 0.06);
+    }
+
+    .top-bar-left,
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .top-bar-left {
+      gap: 0.65rem;
+    }
+
+    /* .notification-button */
+    .back-button,
+    .profile-button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.35rem;
+      height: 2.35rem;
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .main-content {
+      flex: 1 1 auto;
+      padding-bottom: 0;
+    }
+    .header-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2.35rem;
+      height: 2.35rem;
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .header-button img {
+      width: 1.3rem;
+      height: 1.3rem;
+      object-fit: contain;
+    }
+    .header-button:hover{
+      background-color: #dddfe1;
+    }
+
+    /* .notification-button:hover{*/
+    .profile-button:hover{
+      background-color: #dddfe1;
+    } 
+
+    .back-button img {
+      width: 1.5rem;
+      height: 1.5rem;
+      object-fit: contain;
+    }
+    .back-button:hover{
+      background-color: #dddfe1;
+    }
+
+    /* .notification-button img {*/
+    .profile-button img{
+      width: 1.25rem;
+      height: 1.25rem;
+      object-fit: contain;
+    } 
+
+    .logo {
+      color: #0B8A6A;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+
+    .voice-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: 0;
+      padding: 1rem;
+    }
+
+    .voice-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .voice-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 5.6rem;
+      height: 5.6rem;
+      padding: 0;
+
+      background-color: #0B8A6A;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0.3rem 0.8rem rgba(11, 138, 106, 0.18);
+    }
+
+    .voice-button:hover {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 3.6rem;
+      height: 3.6rem;
+      padding: 0;
+
+      background-color: #0B8A6A;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0.3rem 0.8rem rgba(11, 138, 106, 0.18);
+    }
+    /* .voice-button-text{
+
+    } */
+
+    .voice-button img {
+      width: 3rem;
+      height: 3rem;
+      object-fit: contain;
+    }
+
+    .voice-button-text {
+      max-width: 14rem;
+      margin: 0;
+      padding: 0.2rem;
+
+      color: #202522;
+      font-size: 1.1rem;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+
+    .voice-output-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: 0.4rem;
+      padding: 1rem;
+    }
+
+    .voice-output-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+
+      width: 100%;
+      padding: 1rem;
+
+      background-color: #F7F8FA;
+      border: 0.0625rem solid #E2E5E9;
+      border-radius: 0.8rem;
+      box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.05);
+    }
+
+    .voice-output-label {
+      color: #5F6368;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    .voice-output-text {
+      margin: 0;
+
+      color: #1D2329;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .inventory-status {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .item-found,
+    .item-not-found {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 0.45rem 0.75rem;
+      border-radius: 999rem;
+
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .item-found {
+      color: #FFFFFF;
+      background-color: #0B8A6A;
+    }
+
+    .item-not-found {
+      color: #B3261E;
+      background-color: #FDE5E5;
+    }
+
+
+    .bill-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+
+      margin-top: 0.8rem;
+      padding: 0 1rem;
+    }
+
+    .bill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .bill-header h2 {
+      margin: 0;
+
+      color: #22272B;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .add-item-button-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      
+      gap:0.5rem;
+    }
+
+    .add-item-button {
+      padding: 0.5rem 0;
+
+      color: #0B8A6A;
+      font-size: 0.88rem;
+      font-weight: 600;
+
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+    }
+    .add-item-button-container img{
+      width:1rem;
+      height:0.75rem;
+    }
+
+    .bill-table-container {
+      max-height:16.25rem;
+      width: 100%;
+      margin-top: 0.7rem;
+      overflow-x: auto;
+      overflow-y: auto;
+
+      background-color: #FFFFFF;
+      border: 0.0625rem solid #EEEEEE;
+      border-radius: 0.65rem;
+    }
+
+    .bill-table {
+      width: 100%;
+      min-width: 25rem;
+      border-collapse: collapse;
+    }
+
+    .bill-table thead {
+      background-color: #F8F9FB;
+    }
+
+    .bill-table th {
+      padding: 0.75rem 0.45rem;
+
+      color: #555555;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .bill-table td {
+      padding: 0.75rem 0.35rem;
+
+      color: #222222;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      border-top: 0.0625rem solid #EEEEEE;
+    }
+
+    .quantity-cell,
+    .total-cell {
+      font-weight: 700;
+    }
+
+    .price-cell {
+      color: #333333;
+    }
+
+    .item-description {
+      color: #555555;
+      font-size: 0.82rem;
+    }
+
+    .row-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .edit-item-button,
+    .delete-item-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+
+      background-color: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .edit-item-button:hover {
+      background-color: #E7F5F0;
+    }
+
+    .delete-item-button:hover {
+      background-color: #FDE5E5;
+    }
+
+    .edit-item-button img,
+    .delete-item-button img {
+      width: 1.1rem;
+      height: 1.1rem;
+      object-fit: contain;
+    }
+
+    .bill-summary {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem;
+
+      color: #262B2F;
+      background-color: #F5F6F8;
+      border: 0.0625rem solid #E2E5E8;
+      border-radius: 0.75rem;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 0.75rem;
+      font-size: 0.94rem;
+    }
+
+    .discount-row {
+      margin-bottom: 0;
+      color: #775A20;
+    }
+
+    .discount-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0;
+
+      color: #775A20;
+      font-size: 0.94rem;
+
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .discount-button img {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    .summary-line {
+      height: 0.0625rem;
+      margin: 1.25rem 0;
+      background-color: #CDD1D4;
+    }
+
+    .grand-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .grand-total-label {
+      color: #22272B;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .grand-total-price {
+      color: #007B5A;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+
+    .bill-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+
+      width: 100%;
+      margin-top: 1rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .bill-action-button {
+      display: inline-flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+
+      min-width: 0;
+      padding: 0.8rem 0.6rem;
+
+      color: #1D2521;
+      font-size: 0.95rem;
+      font-weight: 600;
+
+      background-color: #FFFFFF;
+      border: 0.0625rem solid #919A95;
+      border-radius: 999rem;
+      cursor: pointer;
+    }
+
+    .bill-action-button img {
+      width: 1.25rem;
+      height: 1.25rem;
+      object-fit: contain;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 20;
+    
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    
+      width: 100%;
+      max-width: inherit;
+      min-height: 5rem;
+      margin: 0 auto;
+      padding: 0.35rem 0.45rem;
+    
+      background-color: #FCFCFC;
+      border-top: 0.0625rem solid #E4E8E6;
+      box-shadow: 0 -0.25rem 0.45rem rgba(0, 0, 0, 0.07);
+    }
+    
+    .nav-item {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+    
+    .nav-item button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+    
+      width: 100%;
+      min-height: 3.85rem;
+      padding: 0.3rem;
+    
+      color: #35403A;
+      font-size: 0.72rem;
+      font-weight: 500;
+    
+      background-color: transparent;
+      border: none;
+      border-radius: 2rem;
+      cursor: pointer;
+    }
+    
+    .nav-item button:is(.active,:hover) {
+      color: #FFFFFF;
+      font-weight: 700;
+      background-color: #0B8A6A;
+    }
+    
+    .nav-icon img {
+      width: 1.45rem;
+      height: 1.45rem;
+      object-fit: contain;
+    }
+    
+    .nav-label {
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+    
+    .footer-section{
+      font-size: 0.75rem;
+      font-family: inherit;
+      width: 100%;
+      margin:0;
+      padding-top:30%;
+      /* background-color: #0B8A6A;
+      color: #FFFFFF; */
+      
+    }
+    .footer {
+      background-color: #0B8A6A;
+      color: #FFFFFF;
+    }
+
+    
+
+    @media (max-width: 1023px) {
+
+      .sidebar-desktop{
+      display:none;
+    }
+
+    }
+    
+    @media (min-width: 1024px) {
+      body {
+        padding-bottom: 0;
+      }
+    
+      .main-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row-reverse;
+        overflow-x: auto;      
+      }
+    
+      .bottom-nav {
+        display: none;
+      }
+    
+      .top-bar-left .back-button {
+        display: none;
+      }
+    
+      .dashboard-content {
+        flex: 1 1 auto;
+        min-width: 20rem;       
+      }
+    
+      .sidebar-desktop {
+        position: relative;
+        top: 0;
+        z-index: 20;
+        flex: 0 0 auto;         
+    
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    
+        width: 4rem;             
+        min-height: 5rem;
+        padding: 1rem 0.45rem;
+        overflow: hidden;        
+        background-color: #FCFCFC;
+        border-left: 0.0625rem solid #E4E8E6;
+        box-shadow: 0.25rem 0 0.45rem rgba(0, 0, 0, 0.05);
+    
+        transition: 0.3s ease; 
+      }
+      .sidebar-desktop .nav-item button {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        white-space: nowrap;
+      
+        width: 100%;
+        padding: 0.75rem 0.95rem;       
+      }
+
+      .sidebar-desktop.expanded {
+        width: 12rem;             
+      }
+    
+      .sidebar-desktop .nav-label {
+        display: block;
+        opacity: 0;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: opacity 0.25s ease, max-width 0.25s ease;
+      }
+    
+      .sidebar-desktop.expanded .nav-label {
+        opacity: 1;
+        max-width: 10rem;
+      }
+
+      .sidebar-desktop .nav-item {
+        flex: 0 0 auto;
+        gap : 1rem;
+      }
+
+    }
+
+  </style> -->
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <header>
+        <div class="top-bar">
+          <div class="top-bar-left">
+            <a href="../html/index.html" class="back-button">
+              <img src=".../assets/icons/left.png" alt="Back to dashboard" />
+            </a>
+            <span class="logo">Billing</span>
+          </div>
+          <div class="top-bar-right">
+            <!-- <button class="notification-button" id="notifications" type="button">
+            <img src=".../assets/icons/notification.png" alt="Notifications">
+          </button> -->
+            <button class="profile-button" id="profile" type="button">
+              <img src=".../assets/icons/user.png" alt="Profile" />
+            </button>
+          </div>
+        </div>
+      </header>
+      <div class="main-container">
+        <div class="main-content">
+          <div class="voice-section">
+            <div class="voice-button-container">
+              <button class="voice-button" id="voiceButton" type="button">
+                <img src=".../assets/icons/mic2.png" alt="Start voice billing" />
+              </button>
+
+              <p class="voice-button-text">
+                Tap and speak item name and quantity
+              </p>
+            </div>
+          </div>
+          <div class="voice-output-section">
+            <div class="voice-output-container">
+              <span class="voice-output-label">WHAT I HEARD</span>
+
+              <p class="voice-output-text" id="voiceOutput">
+                "2 Rice, 1 Sugar, 3 Milk"
+              </p>
+
+              <div class="inventory-status">
+                <div class="item-found">
+                  <span>Matched with inventory</span>
+                </div>
+
+                <div class="item-not-found">
+                  <span>Item not found</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bill-container">
+            <div class="bill-header">
+              <h2>Bill Items</h2>
+
+              <div class="add-item-button-container">
+                <img src=".../assets/icons/plus2.png" alt="Add-button" />
+                <button
+                  class="add-item-button"
+                  id="openPopupButton"
+                  type="button"
+                >
+                  Add Item manually
+                </button>
+              </div>
+            </div>
+
+            <div class="bill-table-container">
+              <table class="bill-table">
+                <thead>
+                  <tr>
+                    <th style="width: 12%">Qty</th>
+                    <th style="width: 32%">Item</th>
+                    <th style="width: 16%">Price</th>
+                    <th style="width: 16%">Total</th>
+                    <th style="width: 24%">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody id="billItemsBody">
+                  <tr id="emptyBillRow">
+                    <td colspan="5" class="empty-bill-cell">
+                      No bill items yet. Use Add Item or voice billing.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="bill-summary">
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="bill-subtotal">₹248.00</span>
+              </div>
+
+              <div class="summary-row">
+                <span>GST (18%)</span>
+                <span id="bill-gst">₹44.64</span>
+              </div>
+
+              <div class="summary-row discount-row">
+                <button
+                  id="edit-discount-button"
+                  class="discount-button"
+                  type="button"
+                >
+                  Discount
+                  <img src=".../assets/icons/pencil.png" alt="" />
+                </button>
+
+                <span id="bill-discount">-₹12.64</span>
+              </div>
+
+              <div class="summary-line"></div>
+
+              <div class="grand-total-row">
+                <span class="grand-total-label">Grand Total</span>
+                <span class="grand-total-price" id="bill-grand-total"
+                  >₹280.00</span
+                >
+              </div>
+            </div>
+
+            <div class="bill-actions">
+              <button
+                class="bill-action-button"
+                id="print-bill-button"
+                type="button"
+              >
+                <img src=".../assets/icons/printing.png" alt="" />
+                <span>Print</span>
+              </button>
+
+              <button
+                class="bill-action-button"
+                id="whatsapp-bill-button"
+                type="button"
+              >
+                <img src=".../assets/icons/share.png" alt="" />
+                <span>WhatsApp</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <footer>
+              <span>Copyright @2026</span>
+            </footer>
+          </div>
+        </div>
+
+        <aside class="sidebar-desktop" id="sidebar">
+          <div class="nav-item">
+            <button id="menuToggle">
+              <div class="nav-icon">
+                <img src=".../assets/icons/menu.png" alt="" />
+              </div>
+
+              <div class="nav-label">
+                <span>Menu</span>
+              </div>
+            </button>
+          </div>
+          <div class="nav-item">
+            <button
+              class="dashboard-active"
+              type="button"
+              onclick="window.location.href = '../html/index.html'"
+            >
+              <div class="nav-icon">
+                <img src=".../assets/icons/dashboard.png" alt="" />
+              </div>
+
+              <div class="nav-label">
+                <span>Dashboard</span>
+              </div>
+            </button>
+          </div>
+          <div class="nav-item">
+            <button
+              class="inventory"
+              type="button"
+              onclick="window.location.href = ''"
+            >
+              <div class="nav-icon">
+                <img src=".../assets/icons/box.png" alt="" />
+              </div>
+
+              <div class="nav-label">
+                <span>Inventory</span>
+              </div>
+            </button>
+          </div>
+          <div class="nav-item">
+            <button
+              class="billing"
+              type="button"
+              onclick="window.location.href = '../html/voiceBilling.html'"
+            >
+              <div class="nav-icon">
+                <img src=".../assets/icons/bill.png" alt="" />
+              </div>
+
+              <div class="nav-label">
+                <span>Billing</span>
+              </div>
+            </button>
+          </div>
+          <div class="nav-item">
+            <button
+              class="profile"
+              type="button"
+              onclick="window.location.href = ''"
+            >
+              <div class="nav-icon">
+                <img src=".../assets/icons/user.png" alt="" />
+              </div>
+
+              <div class="nav-label">
+                <span>Profile</span>
+              </div>
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <nav class="bottom-nav">
+        <div class="nav-item">
+          <button
+            class="dashboard"
+            type="button"
+            onclick="window.location.href = '../html/index.html'"
+          >
+            <div class="nav-icon">
+              <img src=".../assets/icons/dashboard.png" alt="" />
+            </div>
+
+            <div class="nav-label">
+              <span>Dashboard</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="nav-item">
+          <button
+            class="inventory"
+            type="button"
+            onclick="window.location.href = ''"
+          >
+            <div class="nav-icon">
+              <img src=".../assets/icons/box.png" alt="" />
+            </div>
+
+            <div class="nav-label">
+              <span>Inventory</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="nav-item">
+          <button
+            class="billing active"
+            type="button"
+            onclick="window.location.href = '../html/voiceBilling.html'"
+          >
+            <div class="nav-icon">
+              <img src=".../assets/icons/bill.png" alt="" />
+            </div>
+
+            <div class="nav-label">
+              <span>Billing</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="nav-item">
+          <button
+            class="profile"
+            type="button"
+            onclick="window.location.href = ''"
+          >
+            <div class="nav-icon">
+              <img src=".../assets/icons/user.png" alt="" />
+            </div>
+
+            <div class="nav-label">
+              <span>Profile</span>
+            </div>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <dialog class="overlay" id="billItemForm">
+      <div class="pop-up">
+        <h2>Add bill item</h2>
+        <form id="addItemForm">
+          <label for="itemName">Item name</label>
+          <input type="text" id="itemName" placeholder="Rice" required />
+
+          <label for="itemQuantity">Quantity</label>
+          <input type="number" id="itemQuantity" min="1" value="1" required />
+
+          <label for="itemType">Type</label>
+          <input type="text" id="itemType" placeholder="For example, Rice" required />
+
+          <label for="itemBrand">Brand</label>
+          <input
+            type="text"
+            id="itemBrand"
+            placeholder="For example, Rice"
+            required
+          />
+
+          <label for="itemPrice">Price</label>
+          <input
+            type="number"
+            id="itemPrice"
+            min="0"
+            step="0.01"
+            placeholder="For example, 55"
+            required
+          />
+
+          <div class="popup-actions">
+            <button
+              type="button"
+              id="cancelPopupButton"
+              class="secondary-button"
+            >
+              Cancel
+            </button>
+
+            <button id="submitItem" type="submit" class="primary-button">Add item</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const sidebar = document.getElementById("sidebar");
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("expanded");
+      });
+
+      const shareReceiptButton = document.getElementById(
+        "whatsapp-bill-button",
+      );
+      shareReceiptButton.addEventListener("click", shareReceipt);
+      function shareReceipt() {
+        const message = "Here is your bill receipt.";
+
+        const whatsappURL =
+          "https://wa.me/?text=" + encodeURIComponent(message);
+
+        window.open(whatsappURL, "_blank");
+      }
+
+      const printBillButton = document.getElementById("print-bill-button");
+      printBillButton.addEventListener("click", printBill);
+      function printBill() {
+        window.print();
+      }
+
+      const openPopupButton = document.getElementById("openPopupButton");
+      const billItemForm = document.getElementById("billItemForm");
+      const cancelPopupButton = document.getElementById("cancelPopupButton");
+      // const submitItem = document.getElementById("submitItem");
+
+      openPopupButton.addEventListener("click", function () {
+        billItemForm.showModal();
+      });
+
+      cancelPopupButton.addEventListener("click", function () {
+        billItemForm.close();
+      });
+
+      addItemForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const item = {
+          name: document.getElementById("itemName").value.trim(),
+          quantity: Number(document.getElementById("itemQuantity").value),
+          type: document.getElementById("itemType").value.trim(),
+          brand: document.getElementById("itemBrand").value.trim(),
+          price: Number(document.getElementById("itemPrice").value),
+        };
+        const total= item.quantity * item.price;
+
+        console.log("New bill item:", item);
+
+        const newRow = document.createElement("tr");
+
+        newRow.innerHTML = `
+        <td class="quantity-cell">${item.quantity}</td>
+        <td>
+          ${item.name}
+          <br>
+          <span class="item-description">
+            (${item.type} - ${item.brand})
+          </span>
+        </td>
+        
+        <td class="price-cell">₹${item.price.toFixed(2)}</td>
+
+        <td class="total-cell">₹${total.toFixed(2)}</td>
+        
+        <td>
+          <div class="row-actions">
+            <button
+              class="edit-item-button"
+              id="editItem"
+              type="button"
+              aria-label="Edit ${item.name}"
+            >
+              <img src=".../assets/icons/pencil.png" alt="">
+            </button>
+    
+            <button
+              class="delete-item-button"
+              id="deleteItem"
+              type="button"
+              aria-label="Remove ${item.name}"
+            >
+              <img src=".../assets/icons/delete.png" alt="">
+            </button>
+          </div>
+        </td>
+        `;
+        const emptyBillRow = document.getElementById("emptyBillRow");
+          if (emptyBillRow) {
+            emptyBillRow.remove();
+          }
+        billItemsBody.appendChild(newRow);
+
+
+        addItemForm.reset();
+        document.getElementById("itemQuantity").value = 1;
+        billItemForm.close();
+      });
+
+      billItemForm.addEventListener("click", function (event) {
+        if (event.target === billItemForm) {
+          billItemForm.close();
+        }
+      });
+
+      const  = document.getElementById("");
+
+
+    </script>
+  </body>
+</html>
