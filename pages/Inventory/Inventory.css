@@ -74,6 +74,7 @@ html {
     z-index: 1000;
 }
 
+
 .popup-content {
     width: 22rem;
     background: #ffffff;
@@ -88,7 +89,10 @@ html {
 .popup-content h2 {
     text-align: center;
     margin-bottom: 0.5rem;
-    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: green;
 }
 
 .popup-content label {
@@ -469,6 +473,31 @@ tbody tr:hover {
   width: 1rem; /* 16px */
   height: 1rem; /* 16px */
   object-fit: contain;
+}
+
+.status-cell {
+    text-align: center;
+}
+
+.status-btn {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.375rem;
+    background: #ffffff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: default;
+    padding: 0;
+}
+
+.status-btn img {
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
 }
 
 .pagination-container {
