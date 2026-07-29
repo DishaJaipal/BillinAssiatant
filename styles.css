@@ -262,4 +262,9 @@ button {
     opacity: 1;
     max-width: 10rem;
   }
+  /* .sidebar-desktop .nav-item button:is(.active, :hover) {
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #0B8A6A;
+  } */
 }

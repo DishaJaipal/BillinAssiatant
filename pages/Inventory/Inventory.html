@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/BillinAssiatant/pages/Inventory/Inventory.css">
-  <link rel="stylesheet" href="/BillinAssiatant/styles.css">
+  <link rel="stylesheet" href="./Inventory.css">
+  <link rel="stylesheet" href="../../styles.css">
   <script src="../../Javascript/Inventory.js" defer></script>
 </head>
  
@@ -17,7 +17,7 @@
     <!-- Header section -->
     <section class="inventory_section">
         <div class="left_inventory_section">
-          <img id="backButton"src="../../assetss/iconleft.png"/>
+          <img id="backButton"src="../../assetss/icons/left.png"/>
           <h4>Inventory</h4>
         </div>
          <div class="right_inventory_section">
@@ -91,7 +91,7 @@
   
             <!---table section begins -->
           <div class="table-container">
-          <table>
+           <table>
             <thead>
               <tr>
                 <th>Item</th>
@@ -128,7 +128,7 @@
                   <td class="meta-text">35</td>
                   <td><button class="icon-btn" type="button">
             <img src="../../assets/icons/tick.png" alt="Tick Icon" />
-          </button></td>
+            </button></td>
               </tr>
               <tr>
                   <td>
@@ -145,9 +145,29 @@
           </button></td>
               </tr>
             </tbody>
+            
           </table>
+          
           </div>
+          <div class="pagination-container">
+    <div class="pagination-text">
+        Showing 3 of 3 products
+    </div>
+
+    <div class="pagination-buttons">
+        <button class="pagination-btn">
+            <img src="../../assets/icons/left.png" alt="Previous">
+        </button>
+
+        <button class="pagination-btn">
+            <img src="../../assets/icons/chevron.png" alt="Next">
+        </button>
+    </div>
+</div>
       </div>
+
+      
+      
 
       <aside class="sidebar-desktop" id="sidebar">
         <div class="nav-item">
@@ -216,6 +236,8 @@
   
           </button>
         </div> 
+
+        
       </aside>
 
 
@@ -228,7 +250,7 @@
     <!--- ----------Bottom nav------------------------ -->
      <nav class="bottom-nav">
         <div class="nav-item">
-          <button class="dashboard active" type="button"
+          <button class="dashboard" type="button"
             onclick="window.location.href='../../index.html'">
   
             <div class="nav-icon">
