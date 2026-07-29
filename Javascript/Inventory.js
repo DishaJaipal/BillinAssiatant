@@ -92,7 +92,14 @@ function addProduct() {
         <td class="price">₹${productCost}</td>
         <td class="meta-text">${productWeight}</td>
         <td class="meta-text">${productQuantity}</td>
-        <td class="meta-text">${productStatus}</td>
+        <td class="status-cell">
+    ${
+        productStatus === "Available"
+            ? '<button class="status-btn"><img src="../../assets/icons/tick.png" alt="Available"></button>'
+            : '<button class="status-btn"><img src="../../assets/icons/remove.png" alt="Out of Stock"></button>'
+    }
+</td>
+        
     `;
 
     tableBody.appendChild(newRow);
@@ -101,7 +108,7 @@ function addProduct() {
     cost.value = "";
     weight.value = "";
     quantity.value = "";
-    status.value = "Available";
+
 
     closePopup();
 }
