@@ -1,4 +1,8 @@
-
+const menuToggle=document.getElementById("menuToggle");
+const sidebar=document.getElementById("sidebar");
+menuToggle.addEventListener('click',()=>{
+    sidebar.classList.toggle('expanded');
+});
 
 const backButton = document.getElementById("backButton");
 backButton.addEventListener("click", goBack);
@@ -143,40 +147,40 @@ function searchProduct() {
 
 
 // Dashboard
-const dashboardButton = document.getElementById("dashboardButton");
+// const dashboardButton = document.getElementById("dashboardButton");
 
-dashboardButton.addEventListener("click", openDashboard);
+// dashboardButton.addEventListener("click", openDashboard);
 
-function openDashboard() {
-    window.location.href = "../HTML/Dashboard.html";
-}
+// function openDashboard() {
+//     window.location.href = "../HTML/Dashboard.html";
+// }
 
 
 // Inventory
-const inventoryButton = document.getElementById("inventoryButton");
+// const inventoryButton = document.getElementById("inventoryButton");
 
-inventoryButton.addEventListener("click", openInventory);
+// inventoryButton.addEventListener("click", openInventory);
 
-function openInventory() {
-    window.location.href = "../HTML/Inventory.html";
-}
+// function openInventory() {
+//     window.location.href = "../HTML/Inventory.html";
+// }
 
 
 // Billing
-const billingButton = document.getElementById("billingButton");
+// const billingButton = document.getElementById("billingButton");
 
-billingButton.addEventListener("click", openBilling);
+// billingButton.addEventListener("click", openBilling);
 
-function openBilling() {
-    window.location.href = "../HTML/Billing.html";
-}
+// function openBilling() {
+//     window.location.href = "../HTML/Billing.html";
+// }
 
 
 // Profile
-const profileButton = document.getElementById("profileButton");
+// const profileButton = document.getElementById("profileButton");
 
-profileButton.addEventListener("click", openProfile);
+// profileButton.addEventListener("click", openProfile);
 
-function openProfile() {
-    window.location.href = "../HTML/Profile.html";
-}
+// function openProfile() {
+//     window.location.href = "../HTML/Profile.html";
+// }
