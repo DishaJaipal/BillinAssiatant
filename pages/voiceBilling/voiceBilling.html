@@ -9,7 +9,7 @@
 
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#0B8A6A" />
-    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
 
     <link rel="stylesheet" href="../voiceBilling/billing.css" />
     <link rel="stylesheet" href="../../styles.css" />
@@ -161,6 +161,15 @@
                 <span>WhatsApp</span>
               </button>
             </div>
+            <div class="new-bill-container">
+              <button class="new-bill" type="button" onclick="window.location.heref='../BillSuccess/Billing.html'">
+                <img src="../../assets/icons/plus.png"
+                alt="Add"
+                />
+                <p>New Bill</p>
+              </button>
+            </div>
+
           </div>
 
           <div class="footer-section">
@@ -400,6 +409,7 @@
         event.preventDefault();
 
         const item = {
+          id:
           name: document.getElementById("itemName").value.trim(),
           quantity: Number(document.getElementById("itemQuantity").value),
           type: document.getElementById("itemType").value.trim(),
@@ -452,6 +462,8 @@
           if (emptyBillRow) {
             emptyBillRow.remove();
           }
+
+          
         billItemsBody.appendChild(newRow);
 
 
@@ -466,6 +478,11 @@
         }
       });
 
+      editItem.addEventListener("click",function(event){
+        event.preventDefault();
+
+      });
+      deleteItem.addEventListener
 
 
     </script>
