@@ -13,8 +13,6 @@
 
     <link rel="stylesheet" href="../voiceBilling/billing.css" />
     <link rel="stylesheet" href="../../styles.css" />
-
-    
   </head>
 
   <body>
@@ -42,7 +40,10 @@
           <div class="voice-section">
             <div class="voice-button-container">
               <button class="voice-button" id="voiceButton" type="button">
-                <img src="../../assets/icons/mic2.png" alt="Start voice billing" />
+                <img
+                  src="../../assets/icons/mic2.png"
+                  alt="Start voice billing"
+                />
               </button>
 
               <p class="voice-button-text">
@@ -162,14 +163,14 @@
               </button>
             </div>
             <div class="new-bill-container">
-              <button class="new-bill" type="button" onclick="window.location.heref='../BillSuccess/Billing.html'">
-                <img src="../../assets/icons/plus.png"
-                alt="Add"
-                />
-                <p>New Bill</p>
+              <button
+                class="new-bill"
+                type="button"
+                onclick="window.location.heref = '../BillSuccess/Billing.html'"
+              >
+                <p>Generate Bill</p>
               </button>
             </div>
-
           </div>
 
           <div class="footer-section">
@@ -324,30 +325,25 @@
       <div class="pop-up">
         <h2>Add bill item</h2>
         <form id="addItemForm">
-          <label for="itemName">Item name</label>
-          <input type="text" id="itemName" placeholder="Rice" required />
+          <!-- <label for="itemName">Item name</label> -->
+          <input type="text" id="itemName" placeholder="Name" required />
 
-          <label for="itemQuantity">Quantity</label>
+          <!-- <label for="itemQuantity">Quantity</label> -->
           <input type="number" id="itemQuantity" min="1" value="1" required />
 
-          <label for="itemType">Type</label>
-          <input type="text" id="itemType" placeholder="For example, Rice" required />
+          <!-- <label for="itemType">Type</label> -->
+          <input type="text" id="itemType" placeholder="Type" required />
 
-          <label for="itemBrand">Brand</label>
-          <input
-            type="text"
-            id="itemBrand"
-            placeholder="For example, Rice"
-            required
-          />
+          <!-- <label for="itemBrand">Brand</label> -->
+          <input type="text" id="itemBrand" placeholder="Brand" required />
 
-          <label for="itemPrice">Price</label>
+          <!-- <label for="itemPrice">Price</label> -->
           <input
             type="number"
             id="itemPrice"
             min="0"
             step="0.01"
-            placeholder="For example, 55"
+            placeholder="Price"
             required
           />
 
@@ -360,7 +356,9 @@
               Cancel
             </button>
 
-            <button id="submitItem" type="submit" class="primary-button">Add item</button>
+            <button id="submitItem" type="submit" class="primary-button">
+              Add item
+            </button>
           </div>
         </form>
       </div>
@@ -409,21 +407,22 @@
         event.preventDefault();
 
         const item = {
-          id:
+          id: Date.now() + Math.random().toString(16).slice(2),
           name: document.getElementById("itemName").value.trim(),
           quantity: Number(document.getElementById("itemQuantity").value),
           type: document.getElementById("itemType").value.trim(),
           brand: document.getElementById("itemBrand").value.trim(),
           price: Number(document.getElementById("itemPrice").value),
         };
-        const total= item.quantity * item.price;
+        const total = item.quantity * item.price;
 
         console.log("New bill item:", item);
 
         const newRow = document.createElement("tr");
+        newRow.setAttribute("data-item-id",item.id);
 
         newRow.innerHTML = `
-        <td class="quantity-cell">${item.quantity}</td>
+        <td class="quantity-cell" >${item.quantity}</td>
         <td>
           ${item.name}
           <br>
@@ -440,7 +439,7 @@
           <div class="row-actions">
             <button
               class="edit-item-button"
-              id="editItem"
+              data-action="editItem"
               type="button"
               aria-label="Edit ${item.name}"
             >
@@ -449,7 +448,7 @@
     
             <button
               class="delete-item-button"
-              id="deleteItem"
+              data-action="delete"
               type="button"
               aria-label="Remove ${item.name}"
             >
@@ -459,13 +458,11 @@
         </td>
         `;
         const emptyBillRow = document.getElementById("emptyBillRow");
-          if (emptyBillRow) {
-            emptyBillRow.remove();
-          }
+        if (emptyBillRow) {
+          emptyBillRow.remove();
+        }
 
-          
         billItemsBody.appendChild(newRow);
-
 
         addItemForm.reset();
         document.getElementById("itemQuantity").value = 1;
@@ -478,13 +475,27 @@
         }
       });
 
-      editItem.addEventListener("click",function(event){
-        event.preventDefault();
+      billItemsBody.addEventListener("click", function (event) {
+        const deleteButton = event.target.closest("button[data-action='delete']");
+        if (!deleteButton){
+          return;
+        }
+
+        const row= deleteButton.closest("tr");
+        row.remove();
+
+        const table = document.querySelector("table tbody");
+        if (table.rows.lenght===0){
+          new row = document.createElement("tr")
+          row.setAttribute('class','emptyBillRow');
+          row.innerHTML=`<td colspan="5" class="empty-bill-cell">
+                      No bill items yet. Use Add Item or voice billing.
+                    </td>`;
+
+        }
+        
 
       });
-      deleteItem.addEventListener
-
-
     </script>
   </body>
 </html>
