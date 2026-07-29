@@ -4,10 +4,7 @@
    Load AFTER common.css.
    ============================================================ */
 
-/* NOTE: .app-shell wraps both pages' HTML, but only index.html's original
-   stylesheet styled it (voiceBilling.html's <div class="app-shell"> was
-   unstyled). Kept here, page-scoped, to preserve each page's original
-   behavior exactly rather than silently adding this to the billing page. */
+
 .app-shell {
   position: sticky;
 }
