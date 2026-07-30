@@ -4,6 +4,10 @@ menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("expanded");
 });
 
+
+
+
+
 const shareReceiptButton = document.getElementById("whatsapp-bill-button",);
 shareReceiptButton.addEventListener("click", shareReceipt);
 function shareReceipt() {
@@ -33,6 +37,9 @@ const subtotalEl = document.getElementById("bill-subtotal");
 const gstEl = document.getElementById("bill-gst");
 const grandTotalEl = document.getElementById("bill-grand-total");
 const discountEl = document.getElementById("bill-discount");
+
+const gstPer=18;
+
 
 openPopupButton.addEventListener("click", function () {
   billItemForm.showModal();
@@ -101,9 +108,12 @@ addItemForm.addEventListener("submit", function (event) {
       emptyBillRow.remove();
     }
     billItemsBody.appendChild(newRow);
-    items.push(item)
+    billItemForm.close();
+    items.push(item);
+    updateTotals();
     addItemForm.reset();
     document.getElementById("itemQuantity").value = 1;
+    
   
   } else {
     edittingItem.name=document.getElementById("itemName").value.trim();
@@ -130,15 +140,13 @@ addItemForm.addEventListener("submit", function (event) {
       priceCell.textContent = `₹${edittingItem.price.toFixed(2)}`;
       totalCell.textContent = `₹${edittingItem.total.toFixed(2)}`;
     }
-
+    billItemForm.close();
+    updateTotals();
     addItemForm.reset();
+    
     edittingItem=null;
   }
-  
-  billItemForm.close();
-  
 
-  
 });
 
 
@@ -201,3 +209,23 @@ billItemsBody.addEventListener("click",function(event){
   billItemForm.showModal();
 
 });
+
+
+function updateTotals() {
+  const subTotal = items.reduce((sum, item) => sum + item.total, 0);
+  subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
+
+  const gst = (subTotal * gstPer)/100;
+  gstEl.textContent = `₹${gst.toFixed(2)}`;
+  
+  document.getElementById("discount-per").contentEditable = "true";
+  const discountValueEl = document.getElementById("discount-per");
+  const discountValue = Number(discountValueEl.textContent);
+  discountEl.textContent = `₹${discountValue.toFixed(2)}`;
+
+  const grandTotal = subTotal + gst - discountValue;
+  grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+}
+
+
+
