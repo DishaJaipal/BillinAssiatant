@@ -48,6 +48,8 @@
                   alt="Start voice billing"
                 />
               </button>
+              <p class="listening-timer" id="listeningTimer">00:00</p>
+              <p class="voice-button-text" id="listeningLabel">Listening...</p>
 
               <p class="voice-button-text">
                 Tap and speak item name and quantity
@@ -115,33 +117,33 @@
             <div class="bill-summary">
               <div class="summary-row">
                 <span>Subtotal</span>
-                <span id="bill-subtotal">₹248.00</span>
+                <span id="bill-subtotal"></span>
               </div>
 
               <div class="summary-row">
                 <span>GST (18%)</span>
-                <span id="bill-gst">₹44.64</span>
+                <span id="bill-gst"></span>
               </div>
 
               <div class="summary-row discount-row">
-                <button
+                <span
                   id="edit-discount-button"
                   class="discount-button"
-                  type="button"
                 >
                   Discount
+                  <p id ="discount-per">18</p><p>%</p>
                   <img src="../../assets/icons/pencil.png" alt="" />
-                </button>
+              </span>
 
-                <span id="bill-discount">-₹12.64</span>
+                <span id="bill-discount"></span>
               </div>
 
               <div class="summary-line"></div>
 
               <div class="grand-total-row">
-                <span class="grand-total-label">Grand Total</span>
+                <span class="grand-total-label"></span>
                 <span class="grand-total-price" id="bill-grand-total"
-                  >₹280.00</span
+                  ></span
                 >
               </div>
             </div>

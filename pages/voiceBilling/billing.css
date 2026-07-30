@@ -87,6 +87,85 @@
   height: 3rem;
   object-fit: contain;
 }
+.waveform,
+.listening-timer,
+#listeningLabel,
+.stop-button {
+  display: none;
+}
+
+.voice-button-container.listening #voiceButtonText {
+  display: none;
+}
+
+.voice-button-container.listening .waveform {
+  display: flex;
+}
+
+.voice-button-container.listening .listening-timer,
+.voice-button-container.listening #listeningLabel {
+  display: block;
+}
+
+.voice-button-container.listening .stop-button {
+  display: inline-flex;
+}
+
+.voice-button-container.listening .voice-button {
+  background-color: #D64545;
+  box-shadow: 0 0.3rem 0.8rem rgba(214, 69, 69, 0.18);
+}
+
+.listening-timer {
+  margin: 0;
+  color: #0B8A6A;
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+#listeningLabel {
+  color: #5F6368;
+  font-size: 0.95rem;
+}
+
+.stop-button {
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.55rem 1.4rem;
+  margin-top: 0.2rem;
+
+  color: #22272B;
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  background-color: #FFFFFF;
+  border: 0.0625rem solid #C7CCD1;
+  border-radius: 999rem;
+  cursor: pointer;
+}
+
+.stop-button:hover {
+  background-color: #F4F5F6;
+}
+
+.waveform {
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+
+  height: 1.2rem;
+}
+
+.waveform span {
+  display: inline-block;
+  width: 0.2rem;
+  height: 100%;
+  background-color: #0B8A6A;
+  border-radius: 999rem;
+}
 
 .voice-button-text {
   max-width: 14rem;
