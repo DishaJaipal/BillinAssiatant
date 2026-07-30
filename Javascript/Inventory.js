@@ -35,6 +35,8 @@ const cost = document.getElementById("cost");
 const weight = document.getElementById("Weight");
 const quantity = document.getElementById("Quantity");
 const status = document.getElementById("status");
+const type= document.getElementById("itemType");
+const brand= document.getElementById("itemBrand");
 
 const submitButton = document.getElementById("submitButton");
 
@@ -46,6 +48,8 @@ function addProduct() {
     const productCost = Number(cost.value);
     const productWeight = weight.value.trim();
     const productQuantity = Number(quantity.value);
+    const productType=type.value.trim();
+    const productBrand=brand.value.trim();
     const productStatus = status.value;
 
     // Validation
@@ -53,7 +57,9 @@ function addProduct() {
         product === "" ||
         cost.value === "" ||
         productWeight === "" ||
-        quantity.value === ""
+        quantity.value === "" ||
+        type.value === "" ||
+        brand.value === ""
     ) {
         alert("Please fill all fields.");
         return;
@@ -69,17 +75,17 @@ function addProduct() {
         return;
     }
 
-    const rows = document.querySelectorAll("#tableBody tr");
+    // const rows = document.querySelectorAll("#tableBody tr");
 
-    for (let row of rows) {
+    // for (let row of rows) {
 
-        const existingProduct = row.querySelector("strong").textContent.trim().toLowerCase();
+    //     const existingProduct = row.querySelector("strong").textContent.trim().toLowerCase();
 
-        if (existingProduct === product.toLowerCase()) {
-            alert("Product already exists.");
-            return;
-        }
-    }
+    //     if (existingProduct === product.toLowerCase()) {
+    //         alert("Product already exists.");
+    //         return;
+    //     }
+    // }
 
     const newRow = document.createElement("tr");
 
@@ -87,20 +93,37 @@ function addProduct() {
         <td>
             <div class="item">
                 <strong>${product}</strong>
+                <br>
+                  <span class="item-description">
+                    (${productType} - ${productBrand})
+                  </span>
             </div>
         </td>
         <td class="price">₹${productCost}</td>
         <td class="meta-text">${productWeight}</td>
         <td class="meta-text">${productQuantity}</td>
         <td class="status-cell">
-    ${
-        productStatus === "Available"
-            ? '<button class="status-btn"><img src="../../assets/icons/tick.png" alt="Available"></button>'
-            : '<button class="status-btn"><img src="../../assets/icons/remove.png" alt="Out of Stock"></button>'
-    }
-</td>
+         ${
+            productStatus === "Available"
+                ? '<button class="status-btn"><img src="../../assets/icons/tick.png" alt="Available"></button>'
+                : '<button class="status-btn"><img src="../../assets/icons/remove.png" alt="Out of Stock"></button>'
+        }
+        </td>
+        <td class="action-buttons">
+            <button class="icon-btn" onclick="editRow(this)">
+                <img src="../../assets/icons/pencil.png" alt="Edit"/>
+            </button>
+        
+            <button class="icon-btn" onclick="deleteRow(this)">
+                <img src="../../assets/icons/delete.png" alt="Delete"/>
+            </button>
+        </td>
         
     `;
+    const emptyBillRow = document.getElementById("emptyBillRow");
+        if (emptyBillRow) {
+          emptyBillRow.remove();
+        }
 
     tableBody.appendChild(newRow);
 
@@ -112,8 +135,6 @@ function addProduct() {
 
     closePopup();
 }
-
-    
 
 
 
@@ -152,42 +173,85 @@ function searchProduct() {
 
 }
 
+// function deleteRow(button) {
+//     button.closest("tr").remove();
+//     const table = document.querySelector("table tbody");
+//         if (table.rows.length===0){
+//           const row = document.createElement("tr");
+//           row.setAttribute('class','emptyBillRow');
+//           row.innerHTML=`<td colspan="5" class="empty-bill-cell">
+//                       No bill items yet. Use Add Item or voice billing.
+//                     </td>`;
 
-// Dashboard
-// const dashboardButton = document.getElementById("dashboardButton");
-
-// dashboardButton.addEventListener("click", openDashboard);
-
-// function openDashboard() {
-//     window.location.href = "../HTML/Dashboard.html";
+//         }
 // }
 
+function deleteRow(button) {
 
-// Inventory
-// const inventoryButton = document.getElementById("inventoryButton");
+    
+    button.closest("tr").remove();
 
-// inventoryButton.addEventListener("click", openInventory);
+    
+    const table = document.getElementById("tableBody");
 
-// function openInventory() {
-//     window.location.href = "../HTML/Inventory.html";
-// }
+    if (table.rows.length === 0) {
+
+        const row = document.createElement("tr");
+        row.id = "emptyBillRow";
+
+        row.innerHTML = `
+            <td colspan="6" class="empty-bill-cell">
+                No bill items yet. Use Add Item or voice billing.
+            </td>
+        `;
+
+        table.appendChild(row);
+    }
+    updateCards();
+}
+
+function editRow(button) {
+    const row = button.closest("tr");
+
+    productName.value = row.querySelector("strong").textContent;
+    cost.value = row.cells[1].textContent.replace("₹", "");
+    weight.value = row.cells[2].textContent;
+    quantity.value = row.cells[3].textContent;
+
+    showPopup();
+    row.remove();
+}
 
 
-// Billing
-// const billingButton = document.getElementById("billingButton");
+// window.onload = function () {
+//     updateCards();
+// };
 
-// billingButton.addEventListener("click", openBilling);
+// function updateCards() {
 
-// function openBilling() {
-//     window.location.href = "../HTML/Billing.html";
-// }
+//     const rows = document.querySelectorAll("#tableBody tr");
 
+//     let itemsIn = 0;
+//     let lowStock = 0;
+//     let outOfStock = 0;
 
-// Profile
-// const profileButton = document.getElementById("profileButton");
+//     rows.forEach(function(row) {
 
-// profileButton.addEventListener("click", openProfile);
+//         if (row.id === "emptyBillRow") return;
 
-// function openProfile() {
-//     window.location.href = "../HTML/Profile.html";
+//         itemsIn++;
+
+//         const quantity = Number(row.cells[3].textContent);
+
+//         if (quantity === 0) {
+//             outOfStock++;
+//         } else if (quantity <= 5) {
+//             lowStock++;
+//         }
+
+//     });
+
+//      document.getElementById("itemsInCount").textContent = itemsIn;
+//      document.getElementById("lowStockCount").textContent = lowStock;
+//      document.getElementById("outOfStockCount").textContent = outOfStock;
 // }

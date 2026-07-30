@@ -30,6 +30,8 @@
 
                   
                     <input type="text"id="Item" placeholder="Item">
+                    <input type="text" id="itemType" placeholder="Type" required />
+                    <input type="text" id="itemBrand" placeholder="Brand" required />
                     <input type="number"id="cost" placeholder="Cost">
                     <input type="number"id="Weight" placeholder="Weight">
                     <input type="number" id="Quantity" placeholder="Quantity">
@@ -75,15 +77,15 @@
   
         <div class="card_section">
           <div class="card_box">
-            <div class="card_box_header">Items IN </div>
+            <div class="card_box_header" id="items InCount">Items IN </div>
             <div class="card_box_count">03</div>
           </div>
           <div class="card_box">
-            <div class="card_box_header">Low Stock</div>
+            <div class="card_box_header"id="lowStockCount">Low Stock</div>
             <div class="card_box_count">00</div>
           </div>
          <div class="card_box">
-            <div class="card_box_header">out of stock</div>
+            <div class="card_box_header"id="outOfStock">out of stock</div>
             <div class="card_box_count">01</div>
           </div>
         </div>
@@ -99,50 +101,14 @@
                 <th>Weight</th>
                 <th>Qty</th>
                 <th>Status</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody id="tableBody">
-              <tr>
-                  <td>
-                    <div class="item">
-                      <strong>Rice</strong>
-                      <small>ID: #RIC01</small>
-                    </div>
-                  </td>
-                  <td class="price">₹55</td>
-                  <td class="meta-text">1kg</td>
-                  <td class="meta-text">20</td>
-                  <td><button class="icon-btn" type="button">
-            <img src="../../assets/icons/tick.png" alt="Tick Icon" />
-                    </button></td>
-              </tr>
-              <tr>
-                  <td>
-                    <div class="item">
-                      <strong>Sugar</strong>
-                      <small>ID: #SUG22</small>
-                    </div>
-                  </td>
-                  <td class="price">₹48</td>
-                  <td class="meta-text">500g</td>
-                  <td class="meta-text">35</td>
-                  <td><button class="icon-btn" type="button">
-            <img src="../../assets/icons/tick.png" alt="Tick Icon" />
-            </button></td>
-              </tr>
-              <tr>
-                  <td>
-                    <div class="item">
-                      <strong>Milk</strong>
-                      <small>ID: #MLK08</small>
-                    </div>
-                  </td>
-                  <td class="price">₹30</td>
-                  <td class="meta-text">500ml</td>
-                  <td class="meta-text">0</td>
-                  <td><button class="icon-btn" type="button">
-            <img src="../../assets/icons/remove.png" alt="remove Icon" />
-          </button></td>
+              <tr id="emptyBillRow">
+                <td colspan="5" class="empty-bill-cell">
+                  No bill items yet. Use Add Item or voice billing.
+                </td>
               </tr>
             </tbody>
             

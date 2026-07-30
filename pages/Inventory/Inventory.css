@@ -361,7 +361,7 @@ html {
 
 /* Card 2 */
 .card_section .card_box:nth-child(2) {
-  color: #BA1A1A;
+  color: orange;
   font-size: 1.2rem;
   font-weight: 700;
   /* background-color: #fef3c7; */
@@ -450,6 +450,13 @@ tbody tr:hover {
   color: #475569;
 }
 
+.empty-bill-cell{
+text-align: center;
+padding: 1rem;
+color:6b7470;
+  
+}
+
 .icon-btn {
   display: inline-flex;
   align-items: center;
@@ -475,6 +482,18 @@ tbody tr:hover {
   object-fit: contain;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-buttons .icon-btn img {
+    width: 1rem;
+    height: 1rem;
+}
+
 .status-cell {
     text-align: center;
 }
@@ -497,6 +516,13 @@ tbody tr:hover {
 .status-btn img {
     width: 1rem;
     height: 1rem;
+    object-fit: contain;
+}
+
+
+.icon-btn img {
+    width: 20px;
+    height: 20px;
     object-fit: contain;
 }
 
@@ -695,3 +721,5 @@ tbody tr:hover {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08);
   }
 }
+
+
