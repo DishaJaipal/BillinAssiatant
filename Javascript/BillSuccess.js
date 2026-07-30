@@ -1,9 +1,10 @@
-const Button = document.getElementById("backButton");
-Button.addEventListener('click', goBack);
-
+document.addEventListener("DOMContentLoaded", () => {
+const backButton = document.getElementById("backButton");
+backButton.addEventListener('click', goBack);
+});
 
 function goBack() {
-    console.log("clicked")
+    console.log("clicked");
     window.history.back();
 }
 
@@ -29,12 +30,13 @@ function printBill() {
     window.print();
 }
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", () => {
+    const newBillButton = document.getElementById("newBill");
+    newBillButton.addEventListener("click", openBillingPage);
+});
 
-    document.getElementById("billNumber").textContent =
-        localStorage.getItem("billNumber");
-
-    document.getElementById("billDate").textContent =
-        localStorage.getItem("billDate");
-};
-
+const backButton = document.getElementById("newBill");
+function openBillingPage() {
+    console.log("New Bill clicked");
+    window.location.href = "../voiceBilling/voiceBilling.html";
+}
