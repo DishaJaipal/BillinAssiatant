@@ -12,7 +12,6 @@
 html, body {
   margin: 0;
   min-width: 20rem;
-  padding-bottom: 6rem;
   font-family: Inter, Arial, sans-serif;
   color: #202522;
   background-color: #EDF1EF;
@@ -64,6 +63,10 @@ button {
   gap: 0.35rem;
 }
 
+header {
+  position: sticky;
+}
+
 .header-button {
   display: flex;
   align-items: center;
@@ -77,6 +80,7 @@ button {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+
 }
 
 .header-button img {
