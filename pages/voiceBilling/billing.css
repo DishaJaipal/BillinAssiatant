@@ -217,6 +217,95 @@
   height: 0.75rem;
 }
 
+
+#billItemForm.overlay {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+#billItemForm.overlay::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.pop-up {
+  width: 22rem;
+  background: #ffffff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.pop-up h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: green;
+}
+
+#addItemForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#addItemForm label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+}
+
+#addItemForm input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.06rem solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#addItemForm input:focus {
+  border-color: #007bff;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.popup-actions button {
+  width: 48%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background: #dc3545;
+  color: white;
+}
+
+.secondary-button:hover {
+  background: #c82333;
+}
+
+.primary-button {
+  background: #28a745;
+  color: white;
+}
+
+.primary-button:hover {
+  background: #218838;
+}
+
 .bill-table-container {
   max-height: 16.25rem;
   width: 100%;
@@ -256,6 +345,12 @@
   font-size: 0.88rem;
   line-height: 1.35;
   border-top: 0.0625rem solid #EEEEEE;
+}
+.bill-table tr{
+  tbody tr:hover {
+  background-color: #f8fafc;
+  transition: background-color 0.2s ease;
+}
 }
 .empty-bill-cell {
   padding: 1rem;

@@ -13,6 +13,9 @@
 
     <link rel="stylesheet" href="../voiceBilling/billing.css" />
     <link rel="stylesheet" href="../../styles.css" />
+    <!-- <link rel="" -->
+
+    <script src="../../Javascript/voiceBilling.js" defer></script>
   </head>
 
   <body>
@@ -166,7 +169,7 @@
               <button
                 class="new-bill"
                 type="button"
-                onclick="window.location.heref = '../BillSuccess/Billing.html'"
+                onclick="window.location.href = '../BillSuccess/Billing.html'"
               >
                 <p>Generate Bill</p>
               </button>
@@ -364,138 +367,6 @@
       </div>
     </dialog>
 
-    <script>
-      const menuToggle = document.getElementById("menuToggle");
-      const sidebar = document.getElementById("sidebar");
-      menuToggle.addEventListener("click", () => {
-        sidebar.classList.toggle("expanded");
-      });
-
-      const shareReceiptButton = document.getElementById(
-        "whatsapp-bill-button",
-      );
-      shareReceiptButton.addEventListener("click", shareReceipt);
-      function shareReceipt() {
-        const message = "Here is your bill receipt.";
-
-        const whatsappURL =
-          "https://wa.me/?text=" + encodeURIComponent(message);
-
-        window.open(whatsappURL, "_blank");
-      }
-
-      const printBillButton = document.getElementById("print-bill-button");
-      printBillButton.addEventListener("click", printBill);
-      function printBill() {
-        window.print();
-      }
-
-      const openPopupButton = document.getElementById("openPopupButton");
-      const billItemForm = document.getElementById("billItemForm");
-      const cancelPopupButton = document.getElementById("cancelPopupButton");
-      // const submitItem = document.getElementById("submitItem");
-
-      openPopupButton.addEventListener("click", function () {
-        billItemForm.showModal();
-      });
-
-      cancelPopupButton.addEventListener("click", function () {
-        billItemForm.close();
-      });
-
-      addItemForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const item = {
-          id: Date.now() + Math.random().toString(16).slice(2),
-          name: document.getElementById("itemName").value.trim(),
-          quantity: Number(document.getElementById("itemQuantity").value),
-          type: document.getElementById("itemType").value.trim(),
-          brand: document.getElementById("itemBrand").value.trim(),
-          price: Number(document.getElementById("itemPrice").value),
-        };
-        const total = item.quantity * item.price;
-
-        console.log("New bill item:", item);
-
-        const newRow = document.createElement("tr");
-        newRow.setAttribute("data-item-id",item.id);
-
-        newRow.innerHTML = `
-        <td class="quantity-cell" >${item.quantity}</td>
-        <td>
-          ${item.name}
-          <br>
-          <span class="item-description">
-            (${item.type} - ${item.brand})
-          </span>
-        </td>
-        
-        <td class="price-cell">₹${item.price.toFixed(2)}</td>
-
-        <td class="total-cell">₹${total.toFixed(2)}</td>
-        
-        <td>
-          <div class="row-actions">
-            <button
-              class="edit-item-button"
-              data-action="editItem"
-              type="button"
-              aria-label="Edit ${item.name}"
-            >
-              <img src="../../assets/icons/pencil.png" alt="">
-            </button>
     
-            <button
-              class="delete-item-button"
-              data-action="delete"
-              type="button"
-              aria-label="Remove ${item.name}"
-            >
-              <img src="../../assets/icons/delete.png" alt="">
-            </button>
-          </div>
-        </td>
-        `;
-        const emptyBillRow = document.getElementById("emptyBillRow");
-        if (emptyBillRow) {
-          emptyBillRow.remove();
-        }
-
-        billItemsBody.appendChild(newRow);
-
-        addItemForm.reset();
-        document.getElementById("itemQuantity").value = 1;
-        billItemForm.close();
-      });
-
-      billItemForm.addEventListener("click", function (event) {
-        if (event.target === billItemForm) {
-          billItemForm.close();
-        }
-      });
-
-      billItemsBody.addEventListener("click", function (event) {
-        const deleteButton = event.target.closest("button[data-action='delete']");
-        if (!deleteButton){
-          return;
-        }
-
-        const row= deleteButton.closest("tr");
-        row.remove();
-
-        const table = document.querySelector("table tbody");
-        if (table.rows.lenght===0){
-          new row = document.createElement("tr")
-          row.setAttribute('class','emptyBillRow');
-          row.innerHTML=`<td colspan="5" class="empty-bill-cell">
-                      No bill items yet. Use Add Item or voice billing.
-                    </td>`;
-
-        }
-        
-
-      });
-    </script>
   </body>
 </html>
