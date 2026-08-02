@@ -1,12 +1,3 @@
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("expanded");
-});
-
-
-
-
 
 const shareReceiptButton = document.getElementById("whatsapp-bill-button",);
 shareReceiptButton.addEventListener("click", shareReceipt);
@@ -40,6 +31,7 @@ const discountEl = document.getElementById("bill-discount");
 
 const gstPer=18;
 
+document.getElementById("discount-per").contentEditable = "true";
 
 openPopupButton.addEventListener("click", function () {
   billItemForm.showModal();
@@ -108,6 +100,7 @@ addItemForm.addEventListener("submit", function (event) {
       emptyBillRow.remove();
     }
     billItemsBody.appendChild(newRow);
+    addItemForm.reset();
     billItemForm.close();
     items.push(item);
     updateTotals();
@@ -140,9 +133,9 @@ addItemForm.addEventListener("submit", function (event) {
       priceCell.textContent = `₹${edittingItem.price.toFixed(2)}`;
       totalCell.textContent = `₹${edittingItem.total.toFixed(2)}`;
     }
+    addItemForm.reset();
     billItemForm.close();
     updateTotals();
-    addItemForm.reset();
     
     edittingItem=null;
   }
@@ -179,6 +172,12 @@ billItemsBody.addEventListener("click", function (event) {
               </td>`;
     table.appendChild(row);
   }
+  subtotalEl.textContent = ``;
+  gstEl.textContent = ``;
+  discountEl.textContent = ``;
+  grandTotalEl.textContent = ``;
+
+
 });
 
 
@@ -207,25 +206,74 @@ billItemsBody.addEventListener("click",function(event){
   submitItem.textContent = "Save changes";
 
   billItemForm.showModal();
+  
 
 });
 
 
 function updateTotals() {
-  const subTotal = items.reduce((sum, item) => sum + item.total, 0);
+  // const subTotal = items.reduce((sum, item) => sum + item.total, 0);
+  // subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
+
+  // const gst = (subTotal * gstPer)/100;
+  // gstEl.textContent = `₹${gst.toFixed(2)}`;
+  const subGst=updateSubtotal();
+  
+  // document.getElementById("discount-per").contentEditable = "true";
+  // const discountValueEl = document.getElementById("discount-per");
+  // const discountValue = Number(discountValueEl.textContent);
+  // discountEl.textContent = `₹${((subGst*discountValue)/100).toFixed(2)}`;
+
+  const discountValue=updateDiscount(subGst);
+
+  // const grandTotal = subGst - ((subGst*discountValue)/100);
+  // grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+
+  updateGrandTotal(subGst,discountValue);
+}
+
+function updateSubtotal(){
+  let subTotal = items.reduce((sum, item) => sum + item.total, 0);
   subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
 
-  const gst = (subTotal * gstPer)/100;
+  let gst = (subTotal * gstPer)/100;
   gstEl.textContent = `₹${gst.toFixed(2)}`;
-  
+
+  let total=subTotal+gst; 
+
+  return total;
+
+}
+
+function updateGrandTotal(subGst,discountValue){
+  const grandTotal = subGst - ((subGst*discountValue)/100);
+  grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+}
+
+function updateDiscount(subGst){
   document.getElementById("discount-per").contentEditable = "true";
   const discountValueEl = document.getElementById("discount-per");
   const discountValue = Number(discountValueEl.textContent);
-  discountEl.textContent = `₹${discountValue.toFixed(2)}`;
+  discountEl.textContent = `₹${((subGst*discountValue)/100).toFixed(2)}`;
 
-  const grandTotal = subTotal + gst - discountValue;
-  grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+  return discountValue;
 }
+
+const discount = document.getElementById("discount-per");
+discount.addEventListener("keydown",function(event){
+  if (event.key === "Enter"){
+    event.preventDefault();
+    discount.blur();
+  }
+  const subGst=updateSubtotal();
+  if (subGst){
+    const discountValue=updateDiscount(subGst);
+    updateGrandTotal(subGst,discountValue);
+
+  }
+});
+
+
 
 
 
