@@ -27,15 +27,21 @@ button {
   width: 100%;
   margin: 0 auto;
   background-color: #F7F9F8;
-  position: relative;
 }
 
+
 /* ---------- Top bar ---------- */
+header{
+  position:fixed;
+  top:0;
+  z-index: 1000;
+
+}
 
 .top-bar {
-  position: sticky;
+  position: relative;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
@@ -171,17 +177,21 @@ header {
 /* ---------- Footer ---------- */
 
 .footer-section {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-family: inherit;
   width: 100%;
   margin: 0;
-  padding-top: 30%;
+  padding-top:60%;
+  justify-content: center;
+  text-align: center;
+
 }
 
-.footer {
+.footer-section footer {
+  padding: 0.75rem;
   background-color: #0B8A6A;
   color: #FFFFFF;
-}
+} 
 
 /* ---------- Responsive shell: mobile bottom-nav <-> desktop sidebar ---------- */
 
@@ -201,6 +211,8 @@ header {
     display: flex;
     flex-direction: row-reverse;
     overflow-x: auto;
+    /* scrollbar-color: #FFFFFF #0B8A6A ;
+    scrollbar-width: thin; */
   }
 
   .bottom-nav {
@@ -214,7 +226,7 @@ header {
   .sidebar-desktop {
     position: relative;
     top: 0;
-    z-index: 20;
+    z-index: 100;
     flex: 0 0 auto;
 
     display: flex;
@@ -273,4 +285,94 @@ header {
   } */
 
   
+}
+
+
+#profileForm.overlay {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+#profileForm.overlay::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.pop-up {
+  width: 22rem;
+  background: #ffffff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.pop-up h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: green;
+}
+
+#addUserForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#addIUSerForm label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+}
+
+#addUserForm input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.06rem solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#addUserForm input:focus {
+  border-color: #dcfcf4;
+}
+
+.popup-actions {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.popup-actions button {
+  width: 48%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.secondary-button {
+  background: #dc3545;
+  color: white;
+}
+
+.secondary-button:hover {
+  background: #c82333;
+}
+
+.primary-button {
+  background: #0B8A6A;
+  color: white;
+}
+
+.primary-button:hover {
+  background: #007a5b;
 }

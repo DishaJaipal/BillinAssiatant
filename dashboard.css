@@ -16,8 +16,13 @@
 }
 
 .dashboard-content {
-  padding: 1rem;
+  padding-bottom:0;
+  /* padding: 1rem; */
   padding-bottom: 0;
+  flex: 1 1 auto;
+  overflow-y: scroll;
+  /* scrollbar-color: #FFFFFF #0B8A6A ;
+  scrollbar-width: thin; */
 }
 
 .card-welcome {
@@ -26,6 +31,9 @@
 
   min-height: 10.5rem;
   padding: 1.15rem 1.35rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem ;
 
   color: #FFFFFF;
   background-color: #0B8A6A;
@@ -55,10 +63,13 @@
 }
 
 .stats-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
   gap: 0.75rem;
-  width: 100%;
+  width: stretch;
   margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .stat-card {
@@ -110,16 +121,19 @@
 }
 
 .section-heading h2 {
-  margin: 0;
+  margin-left: 1rem;
+  margin-right: 1rem;
   color: #3D4846;
   font-size: 1.15rem;
   font-weight: 700;
 }
 
 .card-action {
-  width: 100%;
+  width: stretch;
   margin-bottom: 1rem;
   overflow: hidden;
+  margin-left: 1rem;
+  margin-right: 1rem;
 
   background-color: #FFFFFF;
   border: 0.0625rem solid #EDF0EE;

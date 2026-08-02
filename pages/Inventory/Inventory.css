@@ -662,6 +662,9 @@ color:6b7470;
   .item strong {
     font-size: 1.25rem;
   }
+  .inventory_section .left_inventory_section img {
+  display:none;
+  }
 }
 
 
@@ -688,6 +691,9 @@ color:6b7470;
     padding: 0 2rem;
     gap: 2rem;
     border-bottom: 0.0625rem solid #e5e7eb;
+  }
+  .inventory_section .left_inventory_section img {
+  display:none;
   }
 
   .navbar .nav_button {
