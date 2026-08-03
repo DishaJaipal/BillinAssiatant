@@ -35,7 +35,7 @@ button {
 .top-bar {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
 
   display: flex;
   justify-content: space-between;
@@ -65,6 +65,7 @@ button {
 
 header {
   position: sticky;
+  
 }
 
 .header-button {
@@ -212,7 +213,7 @@ header {
   }
 
   .sidebar-desktop {
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 20;
     flex: 0 0 auto;

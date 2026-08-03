@@ -9,340 +9,998 @@
 
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#0B8A6A" />
+
     <link rel="manifest" href="../../manifest.webmanifest" />
 
     <link rel="stylesheet" href="../voiceBilling/billing.css" />
     <link rel="stylesheet" href="../../styles.css" />
-    <!-- <link rel="" -->
+    <link rel="stylesheet" href="../BillSuccess/BillSuccess.css" />
+
+    
+    
+    
+
 
     <script src="../../Javascript/voiceBilling.js" defer></script>
   </head>
 
   <body>
+
     <div class="app-shell">
+
+      <!-- ================= HEADER ================= -->
+
       <header>
         <div class="top-bar">
+
           <div class="top-bar-left">
+
             <a href="../../index.html" class="back-button">
-              <img src="../../assets/icons/left.png" alt="Back to dashboard" />
+              <img
+                src="../../assets/icons/left.png"
+                alt="Back to dashboard"
+              />
             </a>
+
             <span class="logo">Billing</span>
+
           </div>
+
           <div class="top-bar-right">
-            <!-- <button class="notification-button" id="notifications" type="button">
-            <img src="../../assets/icons/notification.png" alt="Notifications">
-          </button> -->
-            <button class="profile-button" id="profile" type="button">
-              <img src="../../assets/icons/user.png" alt="Profile" />
+
+            <button
+              class="profile-button"
+              id="profile"
+              type="button"
+            >
+              <img
+                src="../../assets/icons/user.png"
+                alt="Profile"
+              />
             </button>
+
           </div>
+
         </div>
       </header>
+
+
+      <!-- ================= MAIN CONTAINER ================= -->
+
       <div class="main-container">
+
         <div class="main-content">
-          <div class="voice-section">
-            <div class="voice-button-container">
-              <button class="voice-button" id="voiceButton" type="button">
-                <img
-                  src="../../assets/icons/mic2.png"
-                  alt="Start voice billing"
-                />
-              </button>
-              <p class="listening-timer" id="listeningTimer">00:00</p>
-              <p class="voice-button-text" id="listeningLabel">Listening...</p>
 
-              <p class="voice-button-text">
-                Tap and speak item name and quantity
-              </p>
-            </div>
-          </div>
-          <div class="voice-output-section">
-            <div class="voice-output-container">
-              <span class="voice-output-label">WHAT I HEARD</span>
+          <!-- ==================================================
+               BILLING VIEW
+          =================================================== -->
 
-              <p class="voice-output-text" id="voiceOutput">
-                "2 Rice, 1 Sugar, 3 Milk"
-              </p>
+          <div id="voiceBillingView">
 
-              <div class="inventory-status">
-                <div class="item-found">
-                  <span>Matched with inventory</span>
-                </div>
+            <!-- ================= VOICE SECTION ================= -->
 
-                <div class="item-not-found">
-                  <span>Item not found</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div class="voice-section">
 
-          <div class="bill-container">
-            <div class="bill-header">
-              <h2>Bill Items</h2>
+              <div class="voice-button-container">
 
-              <div class="add-item-button-container">
-                <img src="../../assets/icons/plus2.png" alt="Add-button" />
                 <button
-                  class="add-item-button"
-                  id="openPopupButton"
+                  class="voice-button"
+                  id="voiceButton"
                   type="button"
                 >
-                  Add Item manually
+
+                  <img
+                    src="../../assets/icons/mic2.png"
+                    alt="Start voice billing"
+                  />
+
                 </button>
-              </div>
-            </div>
 
-            <div class="bill-table-container">
-              <table class="bill-table">
-                <thead>
-                  <tr>
-                    <th style="width: 12%">Qty</th>
-                    <th style="width: 32%">Item</th>
-                    <th style="width: 16%">Price</th>
-                    <th style="width: 16%">Total</th>
-                    <th style="width: 24%">Actions</th>
-                  </tr>
-                </thead>
-
-                <tbody id="billItemsBody">
-                  <tr id="emptyBillRow">
-                    <td colspan="5" class="empty-bill-cell">
-                      No bill items yet. Use Add Item or voice billing.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="bill-summary">
-              <div class="summary-row">
-                <span>Subtotal</span>
-                <span id="bill-subtotal"></span>
-              </div>
-
-              <div class="summary-row">
-                <span>GST (18%)</span>
-                <span id="bill-gst"></span>
-              </div>
-
-              <div class="summary-row discount-row">
-                <span
-                  id="edit-discount-button"
-                  class="discount-button"
+                <p
+                  class="listening-timer"
+                  id="listeningTimer"
                 >
-                  Discount
-                  <p id ="discount-per">18</p><p>%</p>
-                  <img src="../../assets/icons/pencil.png" alt="" />
-              </span>
+                  00:00
+                </p>
 
-                <span id="bill-discount"></span>
-              </div>
-
-              <div class="summary-line"></div>
-
-              <div class="grand-total-row">
-                <span class="grand-total-label"></span>
-                <span class="grand-total-price" id="bill-grand-total"
-                  ></span
+                <p
+                  class="voice-button-text"
+                  id="listeningLabel"
                 >
+                  Listening...
+                </p>
+
+                <p class="voice-button-text">
+                  Tap and speak item name and quantity
+                </p>
+
               </div>
+
             </div>
 
-            <div class="bill-actions">
-              <button
-                class="bill-action-button"
-                id="print-bill-button"
-                type="button"
-              >
-                <img src="../../assets/icons/printing.png" alt="" />
-                <span>Print</span>
-              </button>
 
-              <button
-                class="bill-action-button"
-                id="whatsapp-bill-button"
-                type="button"
-              >
-                <img src="../../assets/icons/share.png" alt="" />
-                <span>WhatsApp</span>
-              </button>
+            <!-- ================= VOICE OUTPUT ================= -->
+
+            <div class="voice-output-section">
+
+              <div class="voice-output-container">
+
+                <span class="voice-output-label">
+                  WHAT I HEARD
+                </span>
+
+                <p
+                  class="voice-output-text"
+                  id="voiceOutput"
+                >
+                  "2 Rice, 1 Sugar, 3 Milk"
+                </p>
+
+                <div class="inventory-status">
+
+                  <div class="item-found">
+                    <span>Matched with inventory</span>
+                  </div>
+
+                  <div class="item-not-found">
+                    <span>Item not found</span>
+                  </div>
+
+                </div>
+
+              </div>
+
             </div>
-            <div class="new-bill-container">
-              <button
-                class="new-bill"
-                type="button"
-                onclick="window.location.href = '../BillSuccess/Billing.html'"
-              >
-                <p>Generate Bill</p>
-              </button>
+
+
+            <!-- ================= BILL ITEMS ================= -->
+
+            <div class="bill-container">
+
+              <div class="bill-header">
+
+                <h2>Bill Items</h2>
+
+                <div class="add-item-button-container">
+
+                  <img
+                    src="../../assets/icons/plus2.png"
+                    alt="Add-button"
+                  />
+
+                  <button
+                    class="add-item-button"
+                    id="openPopupButton"
+                    type="button"
+                  >
+                    Add Item manually
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <!-- ================= BILL TABLE ================= -->
+
+              <div class="bill-table-container">
+
+                <table class="bill-table">
+
+                  <thead>
+
+                    <tr>
+
+                      <th style="width: 12%">
+                        Qty
+                      </th>
+
+                      <th style="width: 32%">
+                        Item
+                      </th>
+
+                      <th style="width: 16%">
+                        Price
+                      </th>
+
+                      <th style="width: 16%">
+                        Total
+                      </th>
+
+                      <th style="width: 24%">
+                        Actions
+                      </th>
+
+                    </tr>
+
+                  </thead>
+
+
+                  <tbody id="billItemsBody">
+
+                    <tr id="emptyBillRow">
+
+                      <td
+                        colspan="5"
+                        class="empty-bill-cell"
+                      >
+                        No bill items yet. Use Add Item or voice billing.
+                      </td>
+
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+
+              <!-- ================= BILL SUMMARY ================= -->
+
+              <div class="bill-summary">
+
+                <div class="summary-row">
+
+                  <span>
+                    Subtotal
+                  </span>
+
+                  <span id="bill-subtotal">
+                  </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                  <span>
+                    GST (18%)
+                  </span>
+
+                  <span id="bill-gst">
+                  </span>
+
+                </div>
+
+
+                <div class="summary-row discount-row">
+
+                  <span
+                    id="edit-discount-button"
+                    class="discount-button"
+                  >
+
+                    Discount
+
+                    <p id="discount-per">
+                      18
+                    </p>
+
+                    <p>
+                      %
+                    </p>
+
+                    <img
+                      src="../../assets/icons/pencil.png"
+                      alt=""
+                    />
+
+                  </span>
+
+
+                  <span id="bill-discount">
+                  </span>
+
+                </div>
+
+
+                <div class="summary-line">
+                </div>
+
+
+                <div class="grand-total-row">
+
+                  <span class="grand-total-label">
+                    Grand Total
+                  </span>
+
+                  <span
+                    class="grand-total-price"
+                    id="bill-grand-total"
+                  >
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <!-- ================= BILL ACTIONS ================= -->
+
+              <div class="bill-actions">
+
+                <button
+                  class="bill-action-button"
+                  id="print-bill-button"
+                  type="button"
+                >
+
+                  <img
+                    src="../../assets/icons/printing.png"
+                    alt=""
+                  />
+
+                  <span>
+                    Print
+                  </span>
+
+                </button>
+
+
+                <button
+                  class="bill-action-button"
+                  id="whatsapp-bill-button"
+                  type="button"
+                >
+
+                  <img
+                    src="../../assets/icons/share.png"
+                    alt=""
+                  />
+
+                  <span>
+                    WhatsApp
+                  </span>
+
+                </button>
+
+              </div>
+
+
+              <!-- ================= GENERATE BILL ================= -->
+
+              <div class="new-bill-container">
+
+                <button
+                  class="new-bill"
+                  id="generateBillButton"
+                  type="button"
+                >
+
+                  <p>
+                    Generate Bill
+                  </p>
+
+                </button>
+
+              </div>
+
             </div>
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <div class="footer-section">
+
+              <footer>
+                <span>
+                  Copyright @2026
+                </span>
+              </footer>
+
+            </div>
+
           </div>
 
-          <div class="footer-section">
-            <footer>
-              <span>Copyright @2026</span>
-            </footer>
+
+          <!-- ==================================================
+               BILL SUCCESS SCREEN
+          =================================================== -->
+
+          <div
+            id="billSuccessScreen"
+            class="hidden"
+          >
+
+            <main class="mobile-screen">
+
+
+              <!-- ================= SUCCESS HEADER ================= -->
+
+              <header class="header">
+
+                <button
+                  id="backButton"
+                  class="icon-btn back-btn"
+                  aria-label="Go Back"
+                  type="button"
+                >
+
+                  <img
+                    src="../../assets/icons/left.png"
+                    alt="Back"
+                  />
+
+                </button>
+
+
+                <h1>
+                  Success
+                </h1>
+
+              </header>
+
+
+              <!-- ================= SUCCESS SECTION ================= -->
+
+              <section class="success">
+
+                <div class="success-outer-circle">
+
+                  <div class="success-icon">
+
+                    <img
+                      src="../../assets/icons/check (1).png"
+                      alt="Success"
+                    />
+
+                  </div>
+
+                </div>
+
+
+                <h2>
+                  Bill Generated Successfully
+                </h2>
+
+
+                <p class="description">
+                  The transaction has been processed and recorded
+                  in your inventory system.
+                </p>
+
+              </section>
+
+
+              <!-- ================= BILL DETAILS ================= -->
+
+              <section class="bill-details">
+
+                <article class="card">
+
+                  <strong>
+                    BILL NUMBER
+                  </strong>
+
+                  <h2>
+                    #INV-88291
+                  </h2>
+
+                </article>
+
+
+                <article class="card">
+
+                  <strong>
+                    DATE
+                  </strong>
+
+                  <h2 id="billDate">
+                    Oct 24, 2023
+                  </h2>
+
+                </article>
+
+              </section>
+
+
+              <!-- ================= AMOUNT CARD ================= -->
+
+              <section class="amount-card">
+
+                <div class="amount-content">
+
+                  <strong>
+                    Total Amount Paid
+                  </strong>
+
+                  <h1 id="successTotalAmount">
+                    Rs 1,240.50
+                  </h1>
+
+                </div>
+
+
+                <button
+                  class="receipt-btn"
+                  aria-label="View Receipt"
+                  type="button"
+                >
+
+                  <img
+                    src="../../assets/icons/bill.png"
+                    alt="Receipt"
+                  />
+
+                </button>
+
+              </section>
+
+
+              <!-- ================= ACTION LIST ================= -->
+
+              <section class="action-list">
+
+
+                <!-- SHARE RECEIPT -->
+
+                <button
+                  id="shareReceiptButton"
+                  class="action-item"
+                  type="button"
+                >
+
+                  <div class="action-left">
+
+                    <div class="action-icon">
+
+                      <img
+                        src="../../assets/icons/share.png"
+                        alt="Share"
+                      />
+
+                    </div>
+
+                    <p>
+                      Share Receipt
+                    </p>
+
+                  </div>
+
+
+                  <div class="arrow">
+
+                    <img
+                      src="../../assets/icons/chevron.png"
+                      alt="Next"
+                    />
+
+                  </div>
+
+                </button>
+
+
+                <!-- PRINT BILL -->
+
+                <button
+                  id="printBillButton"
+                  class="action-item"
+                  type="button"
+                >
+
+                  <div class="action-left">
+
+                    <div class="action-icon">
+
+                      <img
+                        src="../../assets/icons/printing.png"
+                        alt="Print"
+                      />
+
+                    </div>
+
+                    <p>
+                      Print Bill
+                    </p>
+
+                  </div>
+
+
+                  <div class="arrow">
+
+                    <img
+                      src="../../assets/icons/chevron.png"
+                      alt="Next"
+                    />
+
+                  </div>
+
+                </button>
+
+              </section>
+
+
+              <!-- ================= NEW BILL ================= -->
+
+              <div class="new-bill-container">
+
+                <button
+                  class="new-bill"
+                  id="newBill"
+                  type="button"
+                >
+
+                  <img
+                    src="../../assets/icons/add (2).png"
+                    alt="Add"
+                  />
+
+                  <p>
+                    New Bill
+                  </p>
+
+                </button>
+
+              </div>
+
+            </main>
+
           </div>
+
         </div>
 
-        <aside class="sidebar-desktop" id="sidebar">
+
+        <!-- ==================================================
+             DESKTOP SIDEBAR
+        =================================================== -->
+
+        <aside
+          class="sidebar-desktop"
+          id="sidebar"
+        >
+
+          <!-- MENU -->
+
           <div class="nav-item">
+
             <button id="menuToggle">
+
               <div class="nav-icon">
-                <img src="../../assets/icons/menu.png" alt="" />
+
+                <img
+                  src="../../assets/icons/menu.png"
+                  alt=""
+                />
+
               </div>
 
               <div class="nav-label">
-                <span>Menu</span>
+
+                <span>
+                  Menu
+                </span>
+
               </div>
+
             </button>
+
           </div>
+
+
+          <!-- DASHBOARD -->
+
           <div class="nav-item">
+
             <button
               class="dashboard-active"
               type="button"
               onclick="window.location.href = '../../index.html'"
             >
+
               <div class="nav-icon">
-                <img src="../../assets/icons/dashboard.png" alt="" />
+
+                <img
+                  src="../../assets/icons/dashboard.png"
+                  alt=""
+                />
+
               </div>
 
               <div class="nav-label">
-                <span>Dashboard</span>
+
+                <span>
+                  Dashboard
+                </span>
+
               </div>
+
             </button>
+
           </div>
+
+
+          <!-- INVENTORY -->
+
           <div class="nav-item">
+
             <button
               class="inventory"
               type="button"
               onclick="window.location.href = '../Inventory/Inventory.html'"
             >
+
               <div class="nav-icon">
-                <img src="../../assets/icons/box.png" alt="" />
+
+                <img
+                  src="../../assets/icons/box.png"
+                  alt=""
+                />
+
               </div>
 
               <div class="nav-label">
-                <span>Inventory</span>
+
+                <span>
+                  Inventory
+                </span>
+
               </div>
+
             </button>
+
           </div>
+
+
+          <!-- BILLING -->
+
           <div class="nav-item">
+
             <button
               class="billing"
               type="button"
               onclick="window.location.href = ''"
             >
+
               <div class="nav-icon">
-                <img src="../../assets/icons/bill.png" alt="" />
+
+                <img
+                  src="../../assets/icons/bill.png"
+                  alt=""
+                />
+
               </div>
 
               <div class="nav-label">
-                <span>Billing</span>
+
+                <span>
+                  Billing
+                </span>
+
               </div>
+
             </button>
+
           </div>
+
+
+          <!-- PROFILE -->
+
           <div class="nav-item">
+
             <button
               class="profile"
               type="button"
               onclick="window.location.href = ''"
             >
+
               <div class="nav-icon">
-                <img src="../../assets/icons/user.png" alt="" />
+
+                <img
+                  src="../../assets/icons/user.png"
+                  alt=""
+                />
+
               </div>
 
               <div class="nav-label">
-                <span>Profile</span>
+
+                <span>
+                  Profile
+                </span>
+
               </div>
+
             </button>
+
           </div>
+
         </aside>
+
       </div>
 
+
+      <!-- ==================================================
+           BOTTOM NAVIGATION
+      =================================================== -->
+
       <nav class="bottom-nav">
+
+
+        <!-- DASHBOARD -->
+
         <div class="nav-item">
+
           <button
             class="dashboard"
             type="button"
             onclick="window.location.href = '../../index.html'"
           >
+
             <div class="nav-icon">
-              <img src="../../assets/icons/dashboard.png" alt="" />
+
+              <img
+                src="../../assets/icons/dashboard.png"
+                alt=""
+              />
+
             </div>
 
             <div class="nav-label">
-              <span>Dashboard</span>
+
+              <span>
+                Dashboard
+              </span>
+
             </div>
+
           </button>
+
         </div>
 
+
+        <!-- INVENTORY -->
+
         <div class="nav-item">
+
           <button
             class="inventory"
             type="button"
             onclick="window.location.href = '../Inventory/Inventory.html'"
           >
+
             <div class="nav-icon">
-              <img src="../../assets/icons/box.png" alt="" />
+
+              <img
+                src="../../assets/icons/box.png"
+                alt=""
+              />
+
             </div>
 
             <div class="nav-label">
-              <span>Inventory</span>
+
+              <span>
+                Inventory
+              </span>
+
             </div>
+
           </button>
+
         </div>
 
+
+        <!-- BILLING -->
+
         <div class="nav-item">
+
           <button
             class="billing active"
             type="button"
             onclick="window.location.href = ''"
           >
+
             <div class="nav-icon">
-              <img src="../../assets/icons/bill.png" alt="" />
+
+              <img
+                src="../../assets/icons/bill.png"
+                alt=""
+              />
+
             </div>
 
             <div class="nav-label">
-              <span>Billing</span>
+
+              <span>
+                Billing
+              </span>
+
             </div>
+
           </button>
+
         </div>
 
+
+        <!-- PROFILE -->
+
         <div class="nav-item">
+
           <button
             class="profile"
             type="button"
             onclick="window.location.href = ''"
           >
+
             <div class="nav-icon">
-              <img src="../../assets/icons/user.png" alt="" />
+
+              <img
+                src="../../assets/icons/user.png"
+                alt=""
+              />
+
             </div>
 
             <div class="nav-label">
-              <span>Profile</span>
+
+              <span>
+                Profile
+              </span>
+
             </div>
+
           </button>
+
         </div>
+
       </nav>
+
     </div>
-    <dialog class="overlay" id="billItemForm">
+
+
+    <!-- ==================================================
+         ADD BILL ITEM POPUP
+    =================================================== -->
+
+    <dialog
+      class="overlay"
+      id="billItemForm"
+    >
+
       <div class="pop-up">
-        <h2>Add bill item</h2>
+
+        <h2>
+          Add bill item
+        </h2>
+
+
         <form id="addItemForm">
-          <!-- <label for="itemName">Item name</label> -->
-          <input type="text" id="itemName" placeholder="Name" required />
 
-          <!-- <label for="itemQuantity">Quantity</label> -->
-          <input type="number" id="itemQuantity" min="1" value="1" required />
 
-          <!-- <label for="itemType">Type</label> -->
-          <input type="text" id="itemType" placeholder="Type" required />
+          <input
+            type="text"
+            id="itemName"
+            placeholder="Name"
+            required
+          />
 
-          <!-- <label for="itemBrand">Brand</label> -->
-          <input type="text" id="itemBrand" placeholder="Brand" required />
 
-          <!-- <label for="itemPrice">Price</label> -->
+          <input
+            type="number"
+            id="itemQuantity"
+            min="1"
+            value="1"
+            required
+          />
+
+
+          <input
+            type="text"
+            id="itemType"
+            placeholder="Type"
+            required
+          />
+
+
+          <input
+            type="text"
+            id="itemBrand"
+            placeholder="Brand"
+            required
+          />
+
+
           <input
             type="number"
             id="itemPrice"
@@ -352,7 +1010,9 @@
             required
           />
 
+
           <div class="popup-actions">
+
             <button
               type="button"
               id="cancelPopupButton"
@@ -361,14 +1021,22 @@
               Cancel
             </button>
 
-            <button id="submitItem" type="submit" class="primary-button">
+
+            <button
+              id="submitItem"
+              type="submit"
+              class="primary-button"
+            >
               Add item
             </button>
+
           </div>
+
         </form>
+
       </div>
+
     </dialog>
 
-    
   </body>
 </html>
