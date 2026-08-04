@@ -1,6 +1,10 @@
+// WhatsApp button on billing page
+const whatsappBillButton = document.getElementById("whatsapp-bill-button");
 
-const shareReceiptButton = document.getElementById("whatsapp-bill-button",);
-shareReceiptButton.addEventListener("click", shareReceipt);
+if (whatsappBillButton) {
+  whatsappBillButton.addEventListener("click", shareReceipt);
+}
+
 function shareReceipt() {
   const message = "Here is your bill receipt.";
   const whatsappURL =
@@ -8,8 +12,14 @@ function shareReceipt() {
   window.open(whatsappURL, "_blank");
 }
 
-const printBillButton = document.getElementById("print-bill-button");
-printBillButton.addEventListener("click", printBill);
+// Print button on billing page
+const printBillButton =
+  document.getElementById("print-bill-button");
+
+if (printBillButton) {
+  printBillButton.addEventListener("click", printBill);
+}
+
 function printBill() {
   window.print();
 }
@@ -31,8 +41,9 @@ const discountEl = document.getElementById("bill-discount");
 
 const gstPer=18;
 
-document.getElementById("discount-per").contentEditable = "true";
-
+//===============================================================================================================================================
+// Opening add bill pop up
+//================================================================================================================================================
 openPopupButton.addEventListener("click", function () {
   billItemForm.showModal();
 });
@@ -41,9 +52,12 @@ cancelPopupButton.addEventListener("click", function () {
   billItemForm.close();
 });
 
-
+//===============================================================================================================================================
+// Add + Edit Bill Item Functionality
+//===============================================================================================================================================
 let items=[];
 let edittingItem=null;
+
 addItemForm.addEventListener("submit", function (event) {
   event.preventDefault();
   if (edittingItem === null) {
@@ -142,6 +156,10 @@ addItemForm.addEventListener("submit", function (event) {
 
 });
 
+// ============================================================
+// CLOSE POPUP WHEN CLICKING OUTSIDE
+// ============================================================
+
 
 billItemForm.addEventListener("click", function (event) {
   if (event.target === billItemForm) {
@@ -149,7 +167,9 @@ billItemForm.addEventListener("click", function (event) {
   }
 });
 
-
+//===============================================================================================================================================
+// Delete Bill Item Functionality
+//===============================================================================================================================================
 billItemsBody.addEventListener("click", function (event) {
   const deleteButton = event.target.closest("button[data-action='delete']");
   if (!deleteButton){
@@ -180,7 +200,9 @@ billItemsBody.addEventListener("click", function (event) {
 
 });
 
-
+//===============================================================================================================================================
+// Edit Bill Item Functionality
+//===============================================================================================================================================
 billItemsBody.addEventListener("click",function(event){
   const editButton=event.target.closest("Button[data-action='editItem']");
   if (!editButton){
@@ -211,23 +233,16 @@ billItemsBody.addEventListener("click",function(event){
 });
 
 
-function updateTotals() {
-  // const subTotal = items.reduce((sum, item) => sum + item.total, 0);
-  // subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
 
-  // const gst = (subTotal * gstPer)/100;
-  // gstEl.textContent = `₹${gst.toFixed(2)}`;
+//========================================================================================================================================================
+//Bill Summary Functions
+//=========================================================================================================================================================
+
+function updateTotals() {
   const subGst=updateSubtotal();
   
-  // document.getElementById("discount-per").contentEditable = "true";
-  // const discountValueEl = document.getElementById("discount-per");
-  // const discountValue = Number(discountValueEl.textContent);
-  // discountEl.textContent = `₹${((subGst*discountValue)/100).toFixed(2)}`;
-
   const discountValue=updateDiscount(subGst);
 
-  // const grandTotal = subGst - ((subGst*discountValue)/100);
-  // grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
 
   updateGrandTotal(subGst,discountValue);
 }
@@ -272,6 +287,245 @@ discount.addEventListener("keydown",function(event){
 
   }
 });
+
+
+// ============================================================
+// SUCCESS SCREEN
+// ============================================================
+
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const voiceBillingView =
+      document.getElementById(
+        "voiceBillingView"
+      );
+
+
+    const billSuccessScreen =
+      document.getElementById(
+        "billSuccessScreen"
+      );
+
+
+    const generateBillButton =
+      document.getElementById(
+        "generateBillButton"
+      );
+
+
+    const backButton =
+      document.getElementById(
+        "backButton"
+      );
+
+
+    const successShareButton =
+      document.getElementById(
+        "shareReceiptButton"
+      );
+
+
+    const successPrintButton =
+      document.getElementById(
+        "printBillButton"
+      );
+
+
+    const newBillButton =
+      document.getElementById(
+        "newBill"
+      );
+
+
+    // ========================================================
+    // GENERATE BILL
+    // ========================================================
+
+    if (
+      generateBillButton &&
+      voiceBillingView &&
+      billSuccessScreen
+    ) {
+
+      generateBillButton.addEventListener(
+        "click",
+        () => {
+
+          voiceBillingView.classList.add(
+            "hidden"
+          );
+
+
+          billSuccessScreen.classList.remove(
+            "hidden"
+          );
+
+        }
+      );
+
+    }
+
+
+    // ========================================================
+    // BACK BUTTON
+    // ========================================================
+
+    if (backButton) {
+
+      backButton.addEventListener(
+        "click",
+        () => {
+
+          billSuccessScreen.classList.add(
+            "hidden"
+          );
+
+
+          voiceBillingView.classList.remove(
+            "hidden"
+          );
+
+        }
+      );
+
+    }
+
+
+    // ========================================================
+    // SHARE RECEIPT
+    // ========================================================
+
+    if (successShareButton) {
+
+      successShareButton.addEventListener(
+        "click",
+        shareReceipt
+      );
+
+    }
+
+
+    // ========================================================
+    // PRINT BILL
+    // ========================================================
+
+    if (successPrintButton) {
+
+      successPrintButton.addEventListener(
+        "click",
+        printBill
+      );
+
+    }
+
+
+    // ========================================================
+    // NEW BILL
+    // ========================================================
+
+    if (newBillButton) {
+
+      newBillButton.addEventListener(
+        "click",
+        () => {
+
+          // Hide success screen
+          billSuccessScreen.classList.add(
+            "hidden"
+          );
+
+
+          // Show billing page
+          voiceBillingView.classList.remove(
+            "hidden"
+          );
+
+
+          // Clear items array
+          items = [];
+
+
+          // Reset editing
+          edittingItem = null;
+
+
+          // Clear table
+          billItemsBody.innerHTML = `
+
+            <tr id="emptyBillRow">
+
+              <td
+                colspan="5"
+                class="empty-bill-cell"
+              >
+                No bill items yet. Use Add Item or voice billing.
+              </td>
+
+            </tr>
+
+          `;
+
+
+          // Reset form
+          if (addItemForm) {
+
+            addItemForm.reset();
+
+          }
+
+
+          // Set default quantity
+          const quantityInput =
+            document.getElementById(
+              "itemQuantity"
+            );
+
+
+          if (quantityInput) {
+
+            quantityInput.value = 1;
+
+          }
+
+
+          // Reset popup title
+          if (billItemForm) {
+
+            const dialogTitle =
+              billItemForm.querySelector("h2");
+
+
+            if (dialogTitle) {
+
+              dialogTitle.textContent =
+                "Add bill item";
+
+            }
+
+          }
+
+
+          // Reset submit button
+          if (submitItem) {
+
+            submitItem.textContent =
+              "Add item";
+
+          }
+
+
+          // Update totals
+          updateTotals();
+
+        }
+      );
+
+    }
+
+  }
+);
 
 
 
