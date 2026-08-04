@@ -1,5 +1,3 @@
-
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -130,7 +128,7 @@ body {
 
   font-weight: 600;
 
-  color: #008f6b;
+  color: #0B8A6A;
 }
 
 
@@ -704,49 +702,49 @@ tbody tr:hover {
 /* =========================================================
    POPUP
 ========================================================= */
-/* 
 .popup {
   position: fixed;
-
   inset: 0;
-
-  background-color:
-    rgba(0, 0, 0, 0.45);
-
-  display: none; */
-
-  /* justify-content: center;
-
+  background-color: rgba(0, 0, 0, 0.45);
+  display: none;
+  justify-content: center;
   align-items: center;
+  z-index: 2000;
+}
 
-  z-index: 200;
-} */
-@media all  and (min-width: 768) and (max-width: 1199) { /* 768px - 1199px */
+@media all and (min-width: 768px) and (max-width: 1199px) {
   html {
     font-size: 1rem;
   }
+
   .app_container {
     max-width: 100%;
     border-radius: 1rem;
   }
+
   .content_section .card_section {
     grid-template-columns: repeat(3, 1fr);
   }
+
   .card_section .card_box {
     height: auto;
   }
-  table, thead th, .item small {
+
+  table,
+  thead th,
+  .item small {
     font-size: 1rem;
   }
+
   .item strong {
     font-size: 1.25rem;
   }
+
   .inventory_section .left_inventory_section img {
-  display:none;
+    display: none;
   }
 }
 
-/* 
 .popup-content {
   width: min(22rem, 90%);
 
@@ -808,13 +806,13 @@ tbody tr:hover {
 .popup-content input:focus,
 .popup-content select:focus {
   border-color: #007bff;
-}*/
+}
 
 
 /* =========================================================
    POPUP BUTTONS
 ========================================================= */
-/* 
+
 .popup-buttons {
   display: flex;
 
@@ -862,7 +860,7 @@ tbody tr:hover {
 
 #submitButton:hover {
   background-color: #218838;
-}  */
+}
 
 
 /* =========================================================
