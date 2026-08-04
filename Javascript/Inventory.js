@@ -16,7 +16,7 @@ const addProductButton = document.getElementById("addProductButton");
 const closePopupButton = document.getElementById("closePopupButton");
 const addProductPopup = document.getElementById("addProductPopup");
 
-addProductButton.addEventListener('click', showPopup);
+addProductButton.addEventListener("click", showPopup);
 closePopupButton.addEventListener("click", closePopup);
 
   
