@@ -1,757 +1,916 @@
-// ============================================================
-// SIDEBAR MENU
-// ============================================================
 
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
 
-if (menuToggle && sidebar) {
-  menuToggle.addEventListener("click", () => {
-    sidebar.classList.toggle("expanded");
-  });
-}
 
+// // ============================================================
+// // BILLING PAGE BUTTONS
+// // ============================================================
 
-// ============================================================
-// BILLING PAGE BUTTONS
-// ============================================================
+// // WhatsApp button on billing page
+// const whatsappBillButton =
+//   document.getElementById("whatsapp-bill-button");
 
-// WhatsApp button on billing page
-const whatsappBillButton =
-  document.getElementById("whatsapp-bill-button");
+// if (whatsappBillButton) {
+//   whatsappBillButton.addEventListener("click", shareReceipt);
+// }
+// =======
+// >>>>>>> dd5404542cd6e35268ceac58504af60ff661a04a
 
-if (whatsappBillButton) {
-  whatsappBillButton.addEventListener("click", shareReceipt);
-}
+// function shareReceipt() {
 
-function shareReceipt() {
+//   const message = "Here is your bill receipt.";
 
-  const message = "Here is your bill receipt.";
+//   const whatsappURL =
+//     "https://wa.me/?text=" + encodeURIComponent(message);
 
-  const whatsappURL =
-    "https://wa.me/?text=" + encodeURIComponent(message);
+//   window.open(whatsappURL, "_blank");
+// }
 
-  window.open(whatsappURL, "_blank");
-}
 
+// // Print button on billing page
+// const printBillButton =
+//   document.getElementById("print-bill-button");
 
-// Print button on billing page
-const printBillButton =
-  document.getElementById("print-bill-button");
+// if (printBillButton) {
+//   printBillButton.addEventListener("click", printBill);
+// }
 
-if (printBillButton) {
-  printBillButton.addEventListener("click", printBill);
-}
+// function printBill() {
+//   window.print();
+// }
 
-function printBill() {
-  window.print();
-}
 
+// // ============================================================
+// // ADD ITEM POPUP
+// // ============================================================
 
-// ============================================================
-// ADD ITEM POPUP
-// ============================================================
+// const openPopupButton =
+//   document.getElementById("openPopupButton");
 
-const openPopupButton =
-  document.getElementById("openPopupButton");
+// const billItemForm =
+//   document.getElementById("billItemForm");
 
-const billItemForm =
-  document.getElementById("billItemForm");
+// const cancelPopupButton =
+//   document.getElementById("cancelPopupButton");
 
-const cancelPopupButton =
-  document.getElementById("cancelPopupButton");
+// const submitItem =
+//   document.getElementById("submitItem");
 
-const submitItem =
-  document.getElementById("submitItem");
+// const addItemForm =
+//   document.getElementById("addItemForm");
 
-const addItemForm =
-  document.getElementById("addItemForm");
+// const billItemsBody =
+//   document.getElementById("billItemsBody");
 
-const billItemsBody =
-  document.getElementById("billItemsBody");
 
+// // ============================================================
+// // BILL TOTAL ELEMENTS
+// // ============================================================
+
+// const subtotalEl =
+//   document.getElementById("bill-subtotal");
+
+// const gstEl =
+//   document.getElementById("bill-gst");
+
+// const grandTotalEl =
+//   document.getElementById("bill-grand-total");
+
+// const discountEl =
+//   document.getElementById("bill-discount");
+
+// const gstPer = 18;
+
+
+// // ============================================================
+// // OPEN ADD ITEM POPUP
+// // ============================================================
+
+// if (openPopupButton && billItemForm) {
+
+//   openPopupButton.addEventListener("click", function () {
+
+//     // Reset editing mode
+//     edittingItem = null;
+
+//     const dialogTitle =
+//       billItemForm.querySelector("h2");
+
+//     if (dialogTitle) {
+//       dialogTitle.textContent = "Add bill item";
+//     }
+// <<<<<<< HEAD
+// =======
+//     billItemsBody.appendChild(newRow);
+//     addItemForm.reset();
+//     billItemForm.close();
+//     items.push(item);
+//     updateTotals();
+//     addItemForm.reset();
+//     document.getElementById("itemQuantity").value = 1;
+    
+  
+//   } else {
+//     edittingItem.name=document.getElementById("itemName").value.trim();
+//     edittingItem.quantity= Number(document.getElementById("itemQuantity").value);
+//     edittingItem.type=document.getElementById("itemType").value.trim();
+//     edittingItem.brand=document.getElementById("itemBrand").value.trim();
+//     edittingItem.price=Number(document.getElementById("itemPrice").value);
+//     edittingItem.total=(Number(document.getElementById("itemQuantity").value))*(Number(document.getElementById("itemPrice").value));
+    
+//     const existingRow = billItemsBody.querySelector(`tr[data-item-id="${edittingItem.id}"]`);
+//     if (existingRow) {
+//       const quantityCell = existingRow.querySelector(".quantity-cell");
+//       const priceCell = existingRow.querySelector(".price-cell");
+//       const totalCell = existingRow.querySelector(".total-cell");
+//       const itemCell = existingRow.children[1];
+// >>>>>>> dd5404542cd6e35268ceac58504af60ff661a04a
+
+//     if (submitItem) {
+//       submitItem.textContent = "Add item";
+//     }
+// <<<<<<< HEAD
+// =======
+//     addItemForm.reset();
+//     billItemForm.close();
+//     updateTotals();
+    
+//     edittingItem=null;
+//   }
+// >>>>>>> dd5404542cd6e35268ceac58504af60ff661a04a
+
+//     billItemForm.showModal();
+
+//   });
+
+// <<<<<<< HEAD
+// =======
+// billItemForm.addEventListener("click", function (event) {
+//   if (event.target === billItemForm) {
+//     billItemForm.close();
+//   }
+// });
+
+
+// billItemsBody.addEventListener("click", function (event) {
+//   const deleteButton = event.target.closest("button[data-action='delete']");
+//   if (!deleteButton){
+//     return;
+//   }
+//   const row= deleteButton.closest("tr");
+//   let targetId =row.getAttribute("data-item-id");
+//   row.remove();
+//   const index = items.findIndex(it => it.id === targetId);
+//   if (index !== -1) {
+//     items.splice(index, 1);
+//   }
+//   console.log(items);
+//   const table = document.querySelector("#billItemsBody");
+//   if (table.rows.length===0){
+//     const row = document.createElement("tr")
+//     row.setAttribute('id','emptyBillRow');
+//     row.innerHTML=`<td colspan="5" class="empty-bill-cell">
+//                 No bill items yet. Use Add Item or voice billing.
+//               </td>`;
+//     table.appendChild(row);
+//   }
+//   subtotalEl.textContent = ``;
+//   gstEl.textContent = ``;
+//   discountEl.textContent = ``;
+//   grandTotalEl.textContent = ``;
+
+
+// });
+
+
+// billItemsBody.addEventListener("click",function(event){
+//   const editButton=event.target.closest("Button[data-action='editItem']");
+//   if (!editButton){
+//     return;
+//   }
+//   const row = editButton.closest("tr");
+//   let targetId= row.getAttribute("data-item-id");
+//   const target = items.find(item=>item.id===targetId);
+//   if (!target){
+//     return;
+//   }
+//   edittingItem=target;
+//   console.log(edittingItem.id);
+//   document.getElementById("itemName").value = target.name;
+//   document.getElementById("itemQuantity").value = target.quantity;
+//   document.getElementById("itemType").value = target.type;
+//   document.getElementById("itemBrand").value = target.brand;
+//   document.getElementById("itemPrice").value = target.price;
+
+//   const dialogTitle = billItemForm.querySelector("h2");
+
+//   dialogTitle.textContent ="Edit biill item"
+//   submitItem.textContent = "Save changes";
+
+//   billItemForm.showModal();
+  
+
+// });
+
+
+// function updateTotals() {
+//   // const subTotal = items.reduce((sum, item) => sum + item.total, 0);
+//   // subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
+
+//   // const gst = (subTotal * gstPer)/100;
+//   // gstEl.textContent = `₹${gst.toFixed(2)}`;
+//   const subGst=updateSubtotal();
+  
+//   // document.getElementById("discount-per").contentEditable = "true";
+//   // const discountValueEl = document.getElementById("discount-per");
+//   // const discountValue = Number(discountValueEl.textContent);
+//   // discountEl.textContent = `₹${((subGst*discountValue)/100).toFixed(2)}`;
+
+//   const discountValue=updateDiscount(subGst);
+
+//   // const grandTotal = subGst - ((subGst*discountValue)/100);
+//   // grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+
+//   updateGrandTotal(subGst,discountValue);
+// }
+
+// function updateSubtotal(){
+//   let subTotal = items.reduce((sum, item) => sum + item.total, 0);
+//   subtotalEl.textContent = `₹${subTotal.toFixed(2)}`;
+
+//   let gst = (subTotal * gstPer)/100;
+//   gstEl.textContent = `₹${gst.toFixed(2)}`;
+
+//   let total=subTotal+gst; 
+
+//   return total;
+
+// }
 
-// ============================================================
-// BILL TOTAL ELEMENTS
-// ============================================================
+// function updateGrandTotal(subGst,discountValue){
+//   const grandTotal = subGst - ((subGst*discountValue)/100);
+//   grandTotalEl.textContent = `₹${grandTotal.toFixed(2)}`;
+// >>>>>>> dd5404542cd6e35268ceac58504af60ff661a04a
+// }
+
+// function updateDiscount(subGst){
+//   document.getElementById("discount-per").contentEditable = "true";
+//   const discountValueEl = document.getElementById("discount-per");
+//   const discountValue = Number(discountValueEl.textContent);
+//   discountEl.textContent = `₹${((subGst*discountValue)/100).toFixed(2)}`;
 
-const subtotalEl =
-  document.getElementById("bill-subtotal");
+//   return discountValue;
+// }
 
-const gstEl =
-  document.getElementById("bill-gst");
+// const discount = document.getElementById("discount-per");
+// discount.addEventListener("keydown",function(event){
+//   if (event.key === "Enter"){
+//     event.preventDefault();
+//     discount.blur();
+//   }
+//   const subGst=updateSubtotal();
+//   if (subGst){
+//     const discountValue=updateDiscount(subGst);
+//     updateGrandTotal(subGst,discountValue);
 
-const grandTotalEl =
-  document.getElementById("bill-grand-total");
+//   }
+// });
 
-const discountEl =
-  document.getElementById("bill-discount");
 
-const gstPer = 18;
 
 
-// ============================================================
-// OPEN ADD ITEM POPUP
-// ============================================================
+// // ============================================================
+// // CANCEL POPUP
+// // ============================================================
 
-if (openPopupButton && billItemForm) {
+// if (cancelPopupButton && billItemForm) {
 
-  openPopupButton.addEventListener("click", function () {
+//   cancelPopupButton.addEventListener("click", function () {
 
-    // Reset editing mode
-    edittingItem = null;
+//     billItemForm.close();
 
-    const dialogTitle =
-      billItemForm.querySelector("h2");
+//     addItemForm.reset();
 
-    if (dialogTitle) {
-      dialogTitle.textContent = "Add bill item";
-    }
+//     document.getElementById("itemQuantity").value = 1;
 
-    if (submitItem) {
-      submitItem.textContent = "Add item";
-    }
+//     edittingItem = null;
 
-    billItemForm.showModal();
+//     const dialogTitle =
+//       billItemForm.querySelector("h2");
 
-  });
+//     if (dialogTitle) {
+//       dialogTitle.textContent = "Add bill item";
+//     }
 
-}
+//     if (submitItem) {
+//       submitItem.textContent = "Add item";
+//     }
 
+//   });
 
-// ============================================================
-// CANCEL POPUP
-// ============================================================
+// }
 
-if (cancelPopupButton && billItemForm) {
 
-  cancelPopupButton.addEventListener("click", function () {
+// // ============================================================
+// // BILL ITEMS ARRAY
+// // ============================================================
 
-    billItemForm.close();
+// let items = [];
 
-    addItemForm.reset();
+// let edittingItem = null;
 
-    document.getElementById("itemQuantity").value = 1;
 
-    edittingItem = null;
+// // ============================================================
+// // ADD / EDIT ITEM
+// // ============================================================
 
-    const dialogTitle =
-      billItemForm.querySelector("h2");
+// if (addItemForm) {
 
-    if (dialogTitle) {
-      dialogTitle.textContent = "Add bill item";
-    }
+//   addItemForm.addEventListener("submit", function (event) {
 
-    if (submitItem) {
-      submitItem.textContent = "Add item";
-    }
+//     event.preventDefault();
 
-  });
 
-}
+//     // ========================================================
+//     // ADD NEW ITEM
+//     // ========================================================
 
+//     if (edittingItem === null) {
 
-// ============================================================
-// BILL ITEMS ARRAY
-// ============================================================
+//       const quantity =
+//         Number(document.getElementById("itemQuantity").value);
 
-let items = [];
+//       const price =
+//         Number(document.getElementById("itemPrice").value);
 
-let edittingItem = null;
 
+//       const item = {
 
-// ============================================================
-// ADD / EDIT ITEM
-// ============================================================
+//         id:
+//           Date.now() +
+//           Math.random().toString(16).slice(2),
 
-if (addItemForm) {
+//         name:
+//           document.getElementById("itemName").value.trim(),
 
-  addItemForm.addEventListener("submit", function (event) {
+//         quantity: quantity,
 
-    event.preventDefault();
+//         type:
+//           document.getElementById("itemType").value.trim(),
 
+//         brand:
+//           document.getElementById("itemBrand").value.trim(),
 
-    // ========================================================
-    // ADD NEW ITEM
-    // ========================================================
+//         price: price,
 
-    if (edittingItem === null) {
+//         total: quantity * price
 
-      const quantity =
-        Number(document.getElementById("itemQuantity").value);
+//       };
 
-      const price =
-        Number(document.getElementById("itemPrice").value);
 
+//       console.log("New bill item:", item);
 
-      const item = {
 
-        id:
-          Date.now() +
-          Math.random().toString(16).slice(2),
+//       // ======================================================
+//       // CREATE TABLE ROW
+//       // ======================================================
 
-        name:
-          document.getElementById("itemName").value.trim(),
+//       const newRow =
+//         document.createElement("tr");
 
-        quantity: quantity,
+//       newRow.setAttribute(
+//         "data-item-id",
+//         item.id
+//       );
 
-        type:
-          document.getElementById("itemType").value.trim(),
 
-        brand:
-          document.getElementById("itemBrand").value.trim(),
+//       newRow.innerHTML = `
 
-        price: price,
+//         <td class="quantity-cell">
+//           ${item.quantity}
+//         </td>
 
-        total: quantity * price
+//         <td>
+//           ${item.name}
 
-      };
+//           <br>
 
+//           <span class="item-description">
+//             (${item.type} - ${item.brand})
+//           </span>
+//         </td>
 
-      console.log("New bill item:", item);
+//         <td class="price-cell">
+//           ₹${item.price.toFixed(2)}
+//         </td>
 
+//         <td class="total-cell">
+//           ₹${item.total.toFixed(2)}
+//         </td>
 
-      // ======================================================
-      // CREATE TABLE ROW
-      // ======================================================
+//         <td>
 
-      const newRow =
-        document.createElement("tr");
+//           <div class="row-actions">
 
-      newRow.setAttribute(
-        "data-item-id",
-        item.id
-      );
+//             <button
+//               class="edit-item-button"
+//               data-action="editItem"
+//               type="button"
+//               aria-label="Edit ${item.name}"
+//             >
 
+//               <img
+//                 src="../../assets/icons/pencil.png"
+//                 alt=""
+//               >
 
-      newRow.innerHTML = `
+//             </button>
 
-        <td class="quantity-cell">
-          ${item.quantity}
-        </td>
 
-        <td>
-          ${item.name}
+//             <button
+//               class="delete-item-button"
+//               data-action="delete"
+//               type="button"
+//               aria-label="Remove ${item.name}"
+//             >
 
-          <br>
+//               <img
+//                 src="../../assets/icons/delete.png"
+//                 alt=""
+//               >
 
-          <span class="item-description">
-            (${item.type} - ${item.brand})
-          </span>
-        </td>
+//             </button>
 
-        <td class="price-cell">
-          ₹${item.price.toFixed(2)}
-        </td>
+//           </div>
 
-        <td class="total-cell">
-          ₹${item.total.toFixed(2)}
-        </td>
+//         </td>
+//       `;
 
-        <td>
 
-          <div class="row-actions">
+//       // ======================================================
+//       // REMOVE EMPTY ROW
+//       // ======================================================
 
-            <button
-              class="edit-item-button"
-              data-action="editItem"
-              type="button"
-              aria-label="Edit ${item.name}"
-            >
+//       const emptyBillRow =
+//         document.getElementById("emptyBillRow");
 
-              <img
-                src="../../assets/icons/pencil.png"
-                alt=""
-              >
+//       if (emptyBillRow) {
+//         emptyBillRow.remove();
+//       }
 
-            </button>
 
+//       // ======================================================
+//       // ADD ROW TO TABLE
+//       // ======================================================
 
-            <button
-              class="delete-item-button"
-              data-action="delete"
-              type="button"
-              aria-label="Remove ${item.name}"
-            >
+//       billItemsBody.appendChild(newRow);
 
-              <img
-                src="../../assets/icons/delete.png"
-                alt=""
-              >
 
-            </button>
+//       // Add item to array
+//       items.push(item);
 
-          </div>
 
-        </td>
-      `;
+//       // Update totals
+//       updateTotals();
 
 
-      // ======================================================
-      // REMOVE EMPTY ROW
-      // ======================================================
+//       // Close popup
+//       billItemForm.close();
 
-      const emptyBillRow =
-        document.getElementById("emptyBillRow");
 
-      if (emptyBillRow) {
-        emptyBillRow.remove();
-      }
+//       // Reset form
+//       addItemForm.reset();
 
+//       document.getElementById("itemQuantity").value = 1;
 
-      // ======================================================
-      // ADD ROW TO TABLE
-      // ======================================================
 
-      billItemsBody.appendChild(newRow);
+//       return;
+//     }
 
 
-      // Add item to array
-      items.push(item);
+//     // ========================================================
+//     // EDIT EXISTING ITEM
+//     // ========================================================
 
+//     edittingItem.name =
+//       document.getElementById("itemName").value.trim();
 
-      // Update totals
-      updateTotals();
+//     edittingItem.quantity =
+//       Number(
+//         document.getElementById("itemQuantity").value
+//       );
 
+//     edittingItem.type =
+//       document.getElementById("itemType").value.trim();
 
-      // Close popup
-      billItemForm.close();
+//     edittingItem.brand =
+//       document.getElementById("itemBrand").value.trim();
 
+//     edittingItem.price =
+//       Number(
+//         document.getElementById("itemPrice").value
+//       );
 
-      // Reset form
-      addItemForm.reset();
 
-      document.getElementById("itemQuantity").value = 1;
+//     edittingItem.total =
+//       edittingItem.quantity *
+//       edittingItem.price;
 
 
-      return;
-    }
+//     // ========================================================
+//     // FIND EXISTING TABLE ROW
+//     // ========================================================
 
+//     const existingRow =
+//       billItemsBody.querySelector(
+//         `tr[data-item-id="${edittingItem.id}"]`
+//       );
 
-    // ========================================================
-    // EDIT EXISTING ITEM
-    // ========================================================
 
-    edittingItem.name =
-      document.getElementById("itemName").value.trim();
+//     if (existingRow) {
 
-    edittingItem.quantity =
-      Number(
-        document.getElementById("itemQuantity").value
-      );
+//       const quantityCell =
+//         existingRow.querySelector(".quantity-cell");
 
-    edittingItem.type =
-      document.getElementById("itemType").value.trim();
+//       const priceCell =
+//         existingRow.querySelector(".price-cell");
 
-    edittingItem.brand =
-      document.getElementById("itemBrand").value.trim();
+//       const totalCell =
+//         existingRow.querySelector(".total-cell");
 
-    edittingItem.price =
-      Number(
-        document.getElementById("itemPrice").value
-      );
+//       const itemCell =
+//         existingRow.children[1];
 
 
-    edittingItem.total =
-      edittingItem.quantity *
-      edittingItem.price;
+//       quantityCell.textContent =
+//         edittingItem.quantity;
 
 
-    // ========================================================
-    // FIND EXISTING TABLE ROW
-    // ========================================================
+//       itemCell.innerHTML = `
 
-    const existingRow =
-      billItemsBody.querySelector(
-        `tr[data-item-id="${edittingItem.id}"]`
-      );
+//         ${edittingItem.name}
 
+//         <br>
 
-    if (existingRow) {
+//         <span class="item-description">
+//           (${edittingItem.type} - ${edittingItem.brand})
+//         </span>
 
-      const quantityCell =
-        existingRow.querySelector(".quantity-cell");
+//       `;
 
-      const priceCell =
-        existingRow.querySelector(".price-cell");
 
-      const totalCell =
-        existingRow.querySelector(".total-cell");
+//       priceCell.textContent =
+//         `₹${edittingItem.price.toFixed(2)}`;
 
-      const itemCell =
-        existingRow.children[1];
 
+//       totalCell.textContent =
+//         `₹${edittingItem.total.toFixed(2)}`;
 
-      quantityCell.textContent =
-        edittingItem.quantity;
+//     }
 
 
-      itemCell.innerHTML = `
+//     // Update totals
+//     updateTotals();
 
-        ${edittingItem.name}
 
-        <br>
+//     // Close popup
+//     billItemForm.close();
 
-        <span class="item-description">
-          (${edittingItem.type} - ${edittingItem.brand})
-        </span>
 
-      `;
+//     // Reset form
+//     addItemForm.reset();
 
+//     document.getElementById("itemQuantity").value = 1;
 
-      priceCell.textContent =
-        `₹${edittingItem.price.toFixed(2)}`;
 
+//     // Reset editing mode
+//     edittingItem = null;
 
-      totalCell.textContent =
-        `₹${edittingItem.total.toFixed(2)}`;
 
-    }
+//     // Change popup back to Add mode
+//     const dialogTitle =
+//       billItemForm.querySelector("h2");
 
+//     if (dialogTitle) {
+//       dialogTitle.textContent = "Add bill item";
+//     }
 
-    // Update totals
-    updateTotals();
+//     if (submitItem) {
+//       submitItem.textContent = "Add item";
+//     }
 
+//   });
 
-    // Close popup
-    billItemForm.close();
+// }
 
 
-    // Reset form
-    addItemForm.reset();
+// // ============================================================
+// // CLOSE POPUP WHEN CLICKING OUTSIDE
+// // ============================================================
 
-    document.getElementById("itemQuantity").value = 1;
+// if (billItemForm) {
 
+//   billItemForm.addEventListener("click", function (event) {
 
-    // Reset editing mode
-    edittingItem = null;
+//     if (event.target === billItemForm) {
 
+//       billItemForm.close();
 
-    // Change popup back to Add mode
-    const dialogTitle =
-      billItemForm.querySelector("h2");
+//       addItemForm.reset();
 
-    if (dialogTitle) {
-      dialogTitle.textContent = "Add bill item";
-    }
+//       document.getElementById("itemQuantity").value = 1;
 
-    if (submitItem) {
-      submitItem.textContent = "Add item";
-    }
+//       edittingItem = null;
 
-  });
+//       const dialogTitle =
+//         billItemForm.querySelector("h2");
 
-}
+//       if (dialogTitle) {
+//         dialogTitle.textContent = "Add bill item";
+//       }
 
+//       if (submitItem) {
+//         submitItem.textContent = "Add item";
+//       }
 
-// ============================================================
-// CLOSE POPUP WHEN CLICKING OUTSIDE
-// ============================================================
+//     }
 
-if (billItemForm) {
+//   });
 
-  billItemForm.addEventListener("click", function (event) {
+// }
 
-    if (event.target === billItemForm) {
 
-      billItemForm.close();
+// // ============================================================
+// // DELETE ITEM
+// // ============================================================
 
-      addItemForm.reset();
+// if (billItemsBody) {
 
-      document.getElementById("itemQuantity").value = 1;
+//   billItemsBody.addEventListener(
+//     "click",
+//     function (event) {
 
-      edittingItem = null;
+//       const deleteButton =
+//         event.target.closest(
+//           "button[data-action='delete']"
+//         );
 
-      const dialogTitle =
-        billItemForm.querySelector("h2");
 
-      if (dialogTitle) {
-        dialogTitle.textContent = "Add bill item";
-      }
+//       if (!deleteButton) {
+//         return;
+//       }
 
-      if (submitItem) {
-        submitItem.textContent = "Add item";
-      }
 
-    }
+//       const row =
+//         deleteButton.closest("tr");
 
-  });
 
-}
+//       if (!row) {
+//         return;
+//       }
 
 
-// ============================================================
-// DELETE ITEM
-// ============================================================
+//       const targetId =
+//         row.getAttribute("data-item-id");
 
-if (billItemsBody) {
 
-  billItemsBody.addEventListener(
-    "click",
-    function (event) {
+//       // Remove row
+//       row.remove();
 
-      const deleteButton =
-        event.target.closest(
-          "button[data-action='delete']"
-        );
 
+//       // Remove item from array
+//       const index =
+//         items.findIndex(
+//           item => item.id === targetId
+//         );
 
-      if (!deleteButton) {
-        return;
-      }
 
+//       if (index !== -1) {
 
-      const row =
-        deleteButton.closest("tr");
+//         items.splice(index, 1);
 
+//       }
 
-      if (!row) {
-        return;
-      }
 
+//       console.log("Remaining items:", items);
 
-      const targetId =
-        row.getAttribute("data-item-id");
 
+//       // ======================================================
+//       // SHOW EMPTY ROW
+//       // ======================================================
 
-      // Remove row
-      row.remove();
+//       if (billItemsBody.rows.length === 0) {
 
+//         const emptyRow =
+//           document.createElement("tr");
 
-      // Remove item from array
-      const index =
-        items.findIndex(
-          item => item.id === targetId
-        );
+//         emptyRow.setAttribute(
+//           "id",
+//           "emptyBillRow"
+//         );
 
 
-      if (index !== -1) {
+//         emptyRow.innerHTML = `
 
-        items.splice(index, 1);
+//           <td
+//             colspan="5"
+//             class="empty-bill-cell"
+//           >
+//             No bill items yet. Use Add Item or voice billing.
+//           </td>
 
-      }
+//         `;
 
 
-      console.log("Remaining items:", items);
+//         billItemsBody.appendChild(emptyRow);
 
+//       }
 
-      // ======================================================
-      // SHOW EMPTY ROW
-      // ======================================================
 
-      if (billItemsBody.rows.length === 0) {
+//       // Update totals
+//       updateTotals();
 
-        const emptyRow =
-          document.createElement("tr");
+//     }
+//   );
 
-        emptyRow.setAttribute(
-          "id",
-          "emptyBillRow"
-        );
+// }
 
 
-        emptyRow.innerHTML = `
+// // ============================================================
+// // EDIT ITEM
+// // ============================================================
 
-          <td
-            colspan="5"
-            class="empty-bill-cell"
-          >
-            No bill items yet. Use Add Item or voice billing.
-          </td>
+// if (billItemsBody) {
 
-        `;
+//   billItemsBody.addEventListener(
+//     "click",
+//     function (event) {
 
+//       const editButton =
+//         event.target.closest(
+//           "button[data-action='editItem']"
+//         );
 
-        billItemsBody.appendChild(emptyRow);
 
-      }
+//       if (!editButton) {
+//         return;
+//       }
 
 
-      // Update totals
-      updateTotals();
+//       const row =
+//         editButton.closest("tr");
 
-    }
-  );
 
-}
+//       if (!row) {
+//         return;
+//       }
 
 
-// ============================================================
-// EDIT ITEM
-// ============================================================
+//       const targetId =
+//         row.getAttribute("data-item-id");
 
-if (billItemsBody) {
 
-  billItemsBody.addEventListener(
-    "click",
-    function (event) {
+//       const target =
+//         items.find(
+//           item => item.id === targetId
+//         );
 
-      const editButton =
-        event.target.closest(
-          "button[data-action='editItem']"
-        );
 
+//       if (!target) {
+//         return;
+//       }
 
-      if (!editButton) {
-        return;
-      }
 
+//       // Store item being edited
+//       edittingItem = target;
 
-      const row =
-        editButton.closest("tr");
 
+//       console.log(
+//         "Editing item:",
+//         edittingItem.id
+//       );
 
-      if (!row) {
-        return;
-      }
 
+//       // ======================================================
+//       // PUT DATA INTO FORM
+//       // ======================================================
 
-      const targetId =
-        row.getAttribute("data-item-id");
+//       document.getElementById("itemName").value =
+//         target.name;
 
+//       document.getElementById("itemQuantity").value =
+//         target.quantity;
 
-      const target =
-        items.find(
-          item => item.id === targetId
-        );
+//       document.getElementById("itemType").value =
+//         target.type;
 
+//       document.getElementById("itemBrand").value =
+//         target.brand;
 
-      if (!target) {
-        return;
-      }
+//       document.getElementById("itemPrice").value =
+//         target.price;
 
 
-      // Store item being edited
-      edittingItem = target;
+//       // ======================================================
+//       // CHANGE POPUP TITLE
+//       // ======================================================
 
+//       const dialogTitle =
+//         billItemForm.querySelector("h2");
 
-      console.log(
-        "Editing item:",
-        edittingItem.id
-      );
 
+//       if (dialogTitle) {
+//         dialogTitle.textContent =
+//           "Edit bill item";
+//       }
 
-      // ======================================================
-      // PUT DATA INTO FORM
-      // ======================================================
 
-      document.getElementById("itemName").value =
-        target.name;
+//       // Change button text
+//       submitItem.textContent =
+//         "Save changes";
 
-      document.getElementById("itemQuantity").value =
-        target.quantity;
 
-      document.getElementById("itemType").value =
-        target.type;
+//       // Open popup
+//       billItemForm.showModal();
 
-      document.getElementById("itemBrand").value =
-        target.brand;
+//     }
+//   );
 
-      document.getElementById("itemPrice").value =
-        target.price;
+// }
 
 
-      // ======================================================
-      // CHANGE POPUP TITLE
-      // ======================================================
+// // ============================================================
+// // UPDATE TOTALS
+// // ============================================================
 
-      const dialogTitle =
-        billItemForm.querySelector("h2");
+// function updateTotals() {
 
+//   // ==========================================================
+//   // SUBTOTAL
+//   // ==========================================================
 
-      if (dialogTitle) {
-        dialogTitle.textContent =
-          "Edit bill item";
-      }
+//   const subTotal =
+//     items.reduce(
+//       (sum, item) => sum + item.total,
+//       0
+//     );
 
 
-      // Change button text
-      submitItem.textContent =
-        "Save changes";
+//   subtotalEl.textContent =
+//     `₹${subTotal.toFixed(2)}`;
 
 
-      // Open popup
-      billItemForm.showModal();
+//   // ==========================================================
+//   // GST
+//   // ==========================================================
 
-    }
-  );
+//   const gst =
+//     (subTotal * gstPer) / 100;
 
-}
 
+//   gstEl.textContent =
+//     `₹${gst.toFixed(2)}`;
 
-// ============================================================
-// UPDATE TOTALS
-// ============================================================
 
-function updateTotals() {
+//   // ==========================================================
+//   // DISCOUNT
+//   // ==========================================================
 
-  // ==========================================================
-  // SUBTOTAL
-  // ==========================================================
+//   const discountValueEl =
+//     document.getElementById("discount-per");
 
-  const subTotal =
-    items.reduce(
-      (sum, item) => sum + item.total,
-      0
-    );
 
+//   if (!discountValueEl) {
+//     return;
+//   }
 
-  subtotalEl.textContent =
-    `₹${subTotal.toFixed(2)}`;
 
+//   discountValueEl.contentEditable = "true";
 
-  // ==========================================================
-  // GST
-  // ==========================================================
 
-  const gst =
-    (subTotal * gstPer) / 100;
+//   const discountValue =
+//     Number(
+//       discountValueEl.textContent
+//     ) || 0;
 
 
-  gstEl.textContent =
-    `₹${gst.toFixed(2)}`;
+//   discountEl.textContent =
+//     `₹${discountValue.toFixed(2)}`;
 
 
-  // ==========================================================
-  // DISCOUNT
-  // ==========================================================
+//   // ==========================================================
+//   // GRAND TOTAL
+//   // ==========================================================
 
-  const discountValueEl =
-    document.getElementById("discount-per");
+//   const grandTotal =
+//     subTotal +
+//     gst -
+//     discountValue;
 
 
-  if (!discountValueEl) {
-    return;
-  }
+//   grandTotalEl.textContent =
+//     `₹${grandTotal.toFixed(2)}`;
 
-
-  discountValueEl.contentEditable = "true";
-
-
-  const discountValue =
-    Number(
-      discountValueEl.textContent
-    ) || 0;
-
-
-  discountEl.textContent =
-    `₹${discountValue.toFixed(2)}`;
-
-
-  // ==========================================================
-  // GRAND TOTAL
-  // ==========================================================
-
-  const grandTotal =
-    subTotal +
-    gst -
-    discountValue;
-
-
-  grandTotalEl.textContent =
-    `₹${grandTotal.toFixed(2)}`;
-
-}
+// }
 
 
 // ============================================================

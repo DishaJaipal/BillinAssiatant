@@ -15,13 +15,9 @@
     <link rel="stylesheet" href="../voiceBilling/billing.css" />
     <link rel="stylesheet" href="../../styles.css" />
     <link rel="stylesheet" href="../BillSuccess/BillSuccess.css" />
-
-    
-    
-    
-
-
+  
     <script src="../../Javascript/voiceBilling.js" defer></script>
+    <script src="../../Javascript/common.js" defer></script>
   </head>
 
   <body>
@@ -781,7 +777,8 @@
             <button
               class="profile"
               type="button"
-              onclick="window.location.href = ''"
+              id =  "profile1"
+              
             >
 
               <div class="nav-icon">
@@ -920,7 +917,6 @@
           <button
             class="profile"
             type="button"
-            onclick="window.location.href = ''"
           >
 
             <div class="nav-icon">
@@ -1036,6 +1032,36 @@
 
       </div>
 
+    </dialog>
+    <dialog class="overlay" id="profileForm">
+      <div class="pop-up">
+        <h2>User Profile</h2>
+        <form id="addUserForm">
+          <!-- <label for="userFirstName">First Name</label> -->
+          <input type="text" id="userFirstName" placeholder="FirstName" required />
+          <!-- <label for="userLastName">Last name</label> -->
+          <input type="text" id="userLastName" placeholder="LastName" required />
+          <!-- <label for="userNumber">Quantity</label> -->
+          <input type="text" id="userNumber" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Phone Number" required />
+  
+          <input type="text" id="userEmail" inputmode="email" placeholder="E-mail" required />
+          <!-- <label for="itemType">Type</label> -->
+          <input type="text" id="gstID" placeholder="GstID" required />
+          
+          <div class="popup-actions">
+            <button
+              type="button"
+              id="cancelUserPopupButton"
+              class="secondary-button"
+            >
+              Cancel
+            </button>
+            <button id="editButton" type="submit" class="primary-button">
+              Edit Details
+            </button>
+          </div>
+        </form>
+      </div>
     </dialog>
 
   </body>
