@@ -704,7 +704,7 @@ tbody tr:hover {
 /* =========================================================
    POPUP
 ========================================================= */
-
+/* 
 .popup {
   position: fixed;
 
@@ -713,15 +713,14 @@ tbody tr:hover {
   background-color:
     rgba(0, 0, 0, 0.45);
 
-  display: none;
+  display: none; */
 
-<<<<<<< HEAD
-  justify-content: center;
+  /* justify-content: center;
 
   align-items: center;
 
-  z-index: 2000;
-=======
+  z-index: 200;
+} */
 @media all  and (min-width: 768) and (max-width: 1199) { /* 768px - 1199px */
   html {
     font-size: 1rem;
@@ -745,10 +744,9 @@ tbody tr:hover {
   .inventory_section .left_inventory_section img {
   display:none;
   }
->>>>>>> 9b40409fc6f950e0d115d553651eff7f46c116ab
 }
 
-
+/* 
 .popup-content {
   width: min(22rem, 90%);
 
@@ -810,13 +808,13 @@ tbody tr:hover {
 .popup-content input:focus,
 .popup-content select:focus {
   border-color: #007bff;
-}
+}*/
 
 
 /* =========================================================
    POPUP BUTTONS
 ========================================================= */
-
+/* 
 .popup-buttons {
   display: flex;
 
@@ -864,7 +862,7 @@ tbody tr:hover {
 
 #submitButton:hover {
   background-color: #218838;
-}
+}  */
 
 
 /* =========================================================
