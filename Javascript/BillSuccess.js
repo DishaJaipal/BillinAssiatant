@@ -1,4 +1,4 @@
-BSJSdocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 const backButton = document.getElementById("backButton");
 backButton.addEventListener('click', goBack);
 });
