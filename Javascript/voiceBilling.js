@@ -346,17 +346,33 @@ document.addEventListener(
       generateBillButton.addEventListener(
         "click",
         () => {
+          voiceBillingView.classList.add("hidden");
+
+          billSuccessScreen.classList.remove("hidden");
           
-          voiceBillingView.classList.add(
-            "hidden"
-          );
+          if (items.length === 0) {
+            alert("No bill items to generate a bill.");
+            voiceBillingView.classList.remove("hidden");
+            billSuccessScreen.classList.add("hidden");
+            return;
+          }
 
+          const successTotalAmount = document.getElementById("successTotalAmount");
+           if (successTotalAmount && grandTotalEl) {
+            successTotalAmount.textContent = grandTotalEl.textContent;
+          }
 
-          billSuccessScreen.classList.remove(
-            "hidden"
-          );
-
+          const date=new Date();
+          const days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+          const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+          const dayName=days[date.getDay()];
+          const day=date.getDate();
+          const month=months[date.getMonth()];
+          const year=date.getFullYear();
+          const formatted=`${dayName}, ${day} ${month} ${year}`;
+          document.getElementById("billDate").textContent=formatted;
         }
+      
       );
 
     }
