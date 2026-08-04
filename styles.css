@@ -71,6 +71,7 @@ header{
 
 header {
   position: sticky;
+  
 }
 
 .header-button {
@@ -224,7 +225,7 @@ header {
   }
 
   .sidebar-desktop {
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 100;
     flex: 0 0 auto;

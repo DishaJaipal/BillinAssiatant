@@ -342,17 +342,11 @@ document.addEventListener(
     // ========================================================
     // GENERATE BILL
     // ========================================================
-
-    if (
-      generateBillButton &&
-      voiceBillingView &&
-      billSuccessScreen
-    ) {
-
+    if (generateBillButton &&voiceBillingView &&  billSuccessScreen) {
       generateBillButton.addEventListener(
         "click",
         () => {
-
+          
           voiceBillingView.classList.add(
             "hidden"
           );
@@ -526,8 +520,3 @@ document.addEventListener(
 
   }
 );
-
-
-
-
-
