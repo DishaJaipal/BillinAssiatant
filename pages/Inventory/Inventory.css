@@ -715,11 +715,37 @@ tbody tr:hover {
 
   display: none;
 
+<<<<<<< HEAD
   justify-content: center;
 
   align-items: center;
 
   z-index: 2000;
+=======
+@media all  and (min-width: 768) and (max-width: 1199) { /* 768px - 1199px */
+  html {
+    font-size: 1rem;
+  }
+  .app_container {
+    max-width: 100%;
+    border-radius: 1rem;
+  }
+  .content_section .card_section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card_section .card_box {
+    height: auto;
+  }
+  table, thead th, .item small {
+    font-size: 1rem;
+  }
+  .item strong {
+    font-size: 1.25rem;
+  }
+  .inventory_section .left_inventory_section img {
+  display:none;
+  }
+>>>>>>> 9b40409fc6f950e0d115d553651eff7f46c116ab
 }
 
 
@@ -982,6 +1008,9 @@ tbody tr:hover {
       rgba(0, 0, 0, 0.08);
 
     z-index: 600;
+  }
+  .inventory_section .left_inventory_section img {
+  display:none;
   }
 
 

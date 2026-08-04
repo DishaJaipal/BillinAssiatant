@@ -14,6 +14,9 @@
   
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./dashboard.css">
+
+  <script src="./Javascript/common.js" defer></script>
+
   
 </head>
 
@@ -183,8 +186,7 @@
           </button>
         </div>
         <div class="nav-item">
-          <button class="profile" type="button"
-            onclick="window.location.href=''">
+          <button class="profile" id="profile1" type="button">
   
             <div class="nav-icon">
               <img src="./assets/icons/user.png" alt="">
@@ -241,8 +243,7 @@
           </button>
         </div>
         <div class="nav-item">
-          <button class="profile" type="button"
-            onclick="window.location.href=''">
+          <button class="profile" id="profile2" type="button">
   
             <div class="nav-icon">
               <img src="./assets/icons/user.png" alt="">
@@ -260,14 +261,38 @@
       <Span>Copyright @2026</Span>
     </footer> -->
   </div>
-  <script>
-    const menuToggle=document.getElementById("menuToggle");
-    const sidebar=document.getElementById("sidebar");
-  
-    menuToggle.addEventListener('click',()=>{
-      sidebar.classList.toggle('expanded');
-    });
 
+  <dialog class="overlay" id="profileForm">
+    <div class="pop-up">
+      <h2>User Profile</h2>
+      <form id="addUserForm">
+        <!-- <label for="userFirstName">First Name</label> -->
+        <input type="text" id="userFirstName" placeholder="FirstName" required />
+        <!-- <label for="userLastName">Last name</label> -->
+        <input type="text" id="userLastName" placeholder="LastName" required />
+        <!-- <label for="userNumber">Quantity</label> -->
+        <input type="text" id="userNumber" inputmode="numeric" pattern="[0-9]" maxlength="10" placeholder="Phone Number" required />
+
+        <input type="text" id="userEmail" inputmode="email" placeholder="E-mail" required />
+        <!-- <label for="itemType">Type</label> -->
+        <input type="text" id="gstID" placeholder="GstID" required />
+        
+        <div class="popup-actions">
+          <button
+            type="button"
+            id="cancelUserPopupButton"
+            class="secondary-button"
+          >
+            Cancel
+          </button>
+          <button id="editButton" type="submit" class="primary-button">
+            Edit Details
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+  <script>
     // document.addEventListener('DOMContentLoaded',function(){
       const cardDate=new Date();
       const days=["Monday","Tuesday","Wednesday","Thrusday","Friday","Saturday","Sunday"];

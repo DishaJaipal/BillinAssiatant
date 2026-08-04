@@ -43,6 +43,9 @@
 .main-content {
   flex: 1 1 auto;
   padding-bottom: 0;
+  /* overflow-y: scroll;
+  scrollbar-color: #FFFFFF #0B8A6A ;
+  scrollbar-width: thin; */
 }
 
 .voice-section {
@@ -151,21 +154,6 @@
   background-color: #F4F5F6;
 }
 
-.waveform {
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-
-  height: 1.2rem;
-}
-
-.waveform span {
-  display: inline-block;
-  width: 0.2rem;
-  height: 100%;
-  background-color: #0B8A6A;
-  border-radius: 999rem;
-}
 
 .voice-button-text {
   max-width: 14rem;
@@ -324,7 +312,7 @@
   font-size: 2rem;
   font-weight: 600;
   font-family: inherit;
-  color: green;
+  color: #0B8A6A;
 }
 
 #addItemForm {
@@ -349,13 +337,14 @@
 }
 
 #addItemForm input:focus {
-  border-color: #007bff;
+  border-color: #dcfcf4;
 }
 
 .popup-actions {
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  gap: 0.5rem;
 }
 
 .popup-actions button {
@@ -377,12 +366,12 @@
 }
 
 .primary-button {
-  background: #28a745;
+  background: #0B8A6A;
   color: white;
 }
 
 .primary-button:hover {
-  background: #218838;
+  background: #007a5b;
 }
 
 .bill-table-container {
@@ -391,6 +380,8 @@
   margin-top: 0.7rem;
   overflow-x: auto;
   overflow-y: auto;
+  /* scrollbar-color: #FFFFFF #0B8A6A ;
+  scrollbar-width: thin; */
 
   background-color: #FFFFFF;
   border: 0.0625rem solid #EEEEEE;
@@ -405,6 +396,8 @@
 
 .bill-table thead {
   background-color: #F8F9FB;
+  position: relative;
+  z-index: 1000;
 }
 
 .bill-table th {
@@ -525,12 +518,15 @@
 
   background-color: transparent;
   border: none;
-  cursor: pointer;
 }
 
 .discount-button img {
   width: 0.9rem;
   height: 0.9rem;
+}
+
+.discount-row .discount-row{
+  cursor: vertical-text;
 }
 
 .summary-line {
