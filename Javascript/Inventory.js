@@ -1,8 +1,4 @@
-const menuToggle=document.getElementById("menuToggle");
-const sidebar=document.getElementById("sidebar");
-menuToggle.addEventListener('click',()=>{
-    sidebar.classList.toggle('expanded');
-});
+
 
 const backButton = document.getElementById("backButton");
 backButton.addEventListener("click", goBack);

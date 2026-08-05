@@ -5,7 +5,8 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-const profile = document.getElementById("profile1");
+const profileButtons = document.querySelectorAll(".profile");
+
 const profileForm = document.getElementById("profileForm");
 
 const cancelUserPopupButton = document.getElementById("cancelUserPopupButton");
@@ -13,62 +14,82 @@ const editButton = document.getElementById("editButton");
 
 const addUserForm=document.getElementById("addUserForm");
 
+// localStorage.setItem("profile", JSON.stringify({ first: "Disha", last: "Test" }));
 
-profile.addEventListener("click", function () {
-  profileForm.showModal();
+function setFieldsLocked(locked) {
+  addUserForm.querySelectorAll("input").forEach(input => {
+    input.disabled = locked;
+  });
+}
+let fieldsLocked = false;
+
+profileButtons.forEach(function(button){
+  button.addEventListener("click",function(){
+    // console.log("Profile button clicked:", button.id);
+
+    const saved = localStorage.getItem("profile");
+
+    if(saved === null){
+      console.log("No profile data found in localStorage.");
+      setFieldsLocked(fieldsLocked);
+      editButton.textContent = "Save Details";
+    }
+    else{
+      const profileData=JSON.parse(saved);
+      fieldsLocked=true;
+      setFieldsLocked(fieldsLocked);
+      console.log("Profile data loaded from localStorage:", profileData);
+      document.getElementById("userFirstName").value = profileData.first;
+      document.getElementById("userLastName").value = profileData.last;
+      document.getElementById("userNumber").value = profileData.phn;
+      document.getElementById("userEmail").value = profileData.email;
+      document.getElementById("gstID").value = profileData.gstId;  
+      fieldsLocked=true;
+      setFieldsLocked(true);
+      editButton.textContent = "Edit Details";             
+    }
+    
+    profileForm.showModal();
+  });
 });
 
-cancelUserPopupButton.addEventListener("click", function () {
-  profileForm.close();
-});
 
-let users=[]
-let edituser=null
+
+// // let users=[]
+// // let edituser=null
+
 addUserForm.addEventListener("submit",function(event){
     event.preventDefault();
 
-    
-    const first= document.getElementById("userFirstName").value.trim();
-    const last= document.getElementById("userLastName").value.trim();
-    const phn= document.getElementById("userNumber").value.trim();
-    const email= document.getElementById("userEmail").value.trim();
-    const gstid= document.getElementById("gstID").value.trim();
-
-    if (users.length=== 0 || edituser === null) {
-    const user = {
-        id: "userID"+Math.random().toString(16).slice(2),
-        first,
-        last,
-        phn,
-        email,
-        gstid,
-    };
-    // const total = item.quantity * item.price;
-    // if(edittingItem===null){
-    users.push(user);
-    console.log("New user", user);
-    edituser = user;
-    profileForm.close();
+    if (fieldsLocked) {
+      fieldsLocked = false;
+      setFieldsLocked(fieldsLocked);
+      editButton.textContent = "Save Details";
+      return;
     }
     else{
-
-        edituser.first = first;
-        edituser.last = last;
-        edituser.phn = phn;
-        edituser.email = email;
-        edituser.gstid = gstid;
-        console.log("User updated:", edituser);
-        edituser = null;
-        profileForm.close();
+      const profileData={
+        first: document.getElementById("userFirstName").value.trim(),
+        last: document.getElementById("userLastName").value.trim(),
+        phn: Number(document.getElementById("userNumber").value.trim()),
+        email: document.getElementById("userEmail").value.trim(),
+        gstId: document.getElementById("gstID").value.trim(),
+        
+      };
+      localStorage.setItem("profile", JSON.stringify(profileData));
+      profileForm.close();
     }
-
-    addUserForm.reset();
-    profileForm.close();
-
 });
+
 
 profileForm.addEventListener("click", function (event) {
   if (event.target === profileForm) {
     profileForm.close();
   }
 });
+
+cancelUserPopupButton.addEventListener("click", function () {
+  profileForm.close();
+});
+
+JSON.parse(localStorage.getItem("profile"))
