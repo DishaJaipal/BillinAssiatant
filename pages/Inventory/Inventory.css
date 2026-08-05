@@ -808,6 +808,13 @@ tbody tr:hover {
   border-color: #007bff;
 }
 
+#profileForm.overlay {
+    /* justify-items: center; */
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* =========================================================
    POPUP BUTTONS

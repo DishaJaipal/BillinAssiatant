@@ -6,12 +6,10 @@
 
   <title>Inventory</title>
 
-  <!-- Keep common styles first -->
   <link rel="stylesheet" href="../../styles.css">
-
-  <!-- Inventory CSS AFTER styles.css -->
   <link rel="stylesheet" href="./Inventory.css">
 
+  <script src="../../Javascript/common.js" defer></script>
   <script src="../../Javascript/Inventory.js" defer></script>
 </head>
 
@@ -314,6 +312,7 @@
           <button
             class="profile"
             type="button"
+            id="profile1"
           >
 
             <div class="nav-icon">
@@ -416,6 +415,7 @@
         <button
           class="profile"
           type="button"
+          id="profile2"
         >
 
           <div class="nav-icon">
@@ -509,6 +509,36 @@
         <!-- ================= POPUP END ================= -->
 
   </main>
+  <dialog class="overlay" id="profileForm">
+      <div class="pop-up">
+        <h2>User Profile</h2>
+        <form id="addUserForm">
+          <!-- <label for="userFirstName">First Name</label> -->
+          <input type="text" id="userFirstName" placeholder="FirstName" required />
+          <!-- <label for="userLastName">Last name</label> -->
+          <input type="text" id="userLastName" placeholder="LastName" required />
+          <!-- <label for="userNumber">Quantity</label> -->
+          <input type="text" id="userNumber" inputmode="numeric" pattern="[0-9]{10}" placeholder="Phone Number" required />
+  
+          <input type="text" id="userEmail" inputmode="email" placeholder="E-mail" required />
+          <!-- <label for="itemType">Type</label> -->
+          <input type="text" id="gstID" placeholder="GstID" required />
+          
+          <div class="popup-actions">
+            <button
+              type="button"
+              id="cancelUserPopupButton"
+              class="secondary-button"
+            >
+              Cancel
+            </button>
+            <button id="editButton" type="submit" class="primary-button">
+              Edit Details
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
 </body>
 </html>

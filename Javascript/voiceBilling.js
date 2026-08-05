@@ -293,6 +293,7 @@ discount.addEventListener("keydown",function(event){
 // SUCCESS SCREEN
 // ============================================================
 
+let todayBillCount = 0;
 document.addEventListener(
   "DOMContentLoaded",
   () => {
@@ -371,6 +372,17 @@ document.addEventListener(
           const year=date.getFullYear();
           const formatted=`${dayName}, ${day} ${month} ${year}`;
           document.getElementById("billDate").textContent=formatted;
+
+          const billNumberEl = document.getElementById("billNumber");
+          todayBillCount++;
+
+          if (billNumberEl) {
+            const today = new Date();
+            const yyy = today.getFullYear();
+            const mm=String(today.getMonth()+1).padStart(2,'0');
+            const dd=String(today.getDate()).padStart(2,'0');
+            billNumberEl.textContent = `${yyy}${mm}${dd}-${todayBillCount.toString().padStart(4, '0')}`;
+          }
         }
       
       );
