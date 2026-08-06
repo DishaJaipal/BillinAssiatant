@@ -2,7 +2,7 @@
    common.css
    Shared design-system rules used by every page: base reset,
    app shell, top bar, bottom nav, desktop sidebar, footer, and
-   the responsive skeleton that swaps bottom-nav <-> sidebar.
+   the responsive skeleton that swaps bottom-nav to sidebar.
    ============================================================ */
 
 :root {
