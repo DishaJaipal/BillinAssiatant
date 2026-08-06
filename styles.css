@@ -22,7 +22,8 @@ html, body {
   color: #202522;
   background-color: #EDF1EF;
   position: relative;
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
+  scroll-behavior: smooth;
 }
 
 button {
@@ -39,6 +40,7 @@ button {
   overflow-x: auto;
     /* scrollbar-color: #FFFFFF #0B8A6A ;
     scrollbar-width: thin; */
+  scrollbar-width: thin;
   
 }
 

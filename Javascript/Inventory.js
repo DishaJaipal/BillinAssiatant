@@ -380,3 +380,10 @@ function nextPage() {
 document.addEventListener("DOMContentLoaded", function () {
     updatePagination();
 });
+
+addProductPopup.addEventListener("click",function(event){
+    event.preventDefault();
+    if (event.target === addProductPopup){
+        closePopup();
+    }
+});
