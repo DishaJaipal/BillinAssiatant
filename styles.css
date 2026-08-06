@@ -2,7 +2,7 @@
    common.css
    Shared design-system rules used by every page: base reset,
    app shell, top bar, bottom nav, desktop sidebar, footer, and
-   the responsive skeleton that swaps bottom-nav <-> sidebar.
+   the responsive skeleton that swaps bottom-nav to sidebar.
    ============================================================ */
 
 :root {
@@ -22,7 +22,8 @@ html, body {
   color: #202522;
   background-color: #EDF1EF;
   position: relative;
-  overscroll-behavior: none;
+  /* overscroll-behavior: none; */
+  scroll-behavior: smooth;
 }
 
 button {
@@ -39,6 +40,7 @@ button {
   overflow-x: auto;
     /* scrollbar-color: #FFFFFF #0B8A6A ;
     scrollbar-width: thin; */
+  scrollbar-width: thin;
   
 }
 
