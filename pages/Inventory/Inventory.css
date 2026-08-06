@@ -1356,3 +1356,15 @@ tbody tr:hover {
   }
 
 }
+
+
+.footer-section{
+  /* position:absolute; */
+ left: 0; 
+ right: 0;
+  
+}
+
+.footer-gap{
+  height:40rem;
+}
