@@ -1,7 +1,23 @@
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("expanded");
+// const menuToggle = document.getElementById("menuToggle");
+// const sidebar = document.getElementById("sidebar");
+// menuToggle.addEventListener("click", () => {
+//   sidebar.classList.toggle("expanded");
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("sidebar");
+
+  if (!menuToggle || !sidebar) return;
+
+  menuToggle.addEventListener("click", () => {
+    const isExpanded = sidebar.classList.toggle("expanded");
+
+    document.body.classList.toggle(
+      "sidebar-is-expanded",
+      isExpanded
+    );
+  });
 });
 
 

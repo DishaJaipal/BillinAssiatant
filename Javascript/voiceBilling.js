@@ -1,3 +1,60 @@
+//============================================================================================================================
+// voice button functionality
+//============================================================================================================================
+
+const voiceButton=document.getElementById("voiceButton");
+const voiceButtonStatic=document.querySelector(".voice-button-static");
+const voiceButtonUse=document.querySelector(".voice-button-use");
+const stopVoiceButton = document.getElementById("stopVoiceButton");
+
+const voiceOutput=document.getElementById("voiceOutput");
+
+var recognition = new webkitSpeechRecognition();
+recognition.lang=window.navigator.language;
+recognition.interimResults=true;
+
+
+voiceButtonUse.classList.add("hidden");
+
+voiceButton.addEventListener("click",function(){
+  voiceButtonStatic.classList.add("hidden");
+  voiceButtonUse.classList.remove("hidden");
+  const listeningTimerMinutes = document.getElementById("listeningTimerMinutes");
+  const listeningTimerSeconds = document.getElementById("listeningTimerSeconds");
+  timerLogic(listeningTimerMinutes, listeningTimerSeconds);
+  recognition.start();
+});
+function timerLogic(listeningTimerMinutes, listeningTimerSeconds) {
+  let seconds = 0;
+  let minutes = 0;
+  const timerInterval = setInterval(() => {
+    seconds++;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+    }
+    listeningTimerMinutes.textContent = minutes.toString().padStart(2, '0');
+    listeningTimerSeconds.textContent = seconds.toString().padStart(2, '0');
+  }, 1000);
+  return ;
+}
+
+stopVoiceButton.addEventListener("click",()=>{
+  voiceButtonStatic.classList.remove("hidden");
+  voiceButtonUse.classList.add("hidden");
+  clearInterval(timerInterval);
+  recognition.stop();
+  result=null;
+  voiceOutput.textContent=result;
+});
+
+recognition.addEventListener("result",function(event){
+  const result=event.results[event.results.length-1][0].transcript;
+  voiceOutput.textContent=result;
+});
+
+
+
 // WhatsApp button on billing page
 const whatsappBillButton = document.getElementById("whatsapp-bill-button");
 
