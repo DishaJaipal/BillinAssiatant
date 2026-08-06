@@ -42,6 +42,8 @@
             alt="Add Product"
           >
         </button>
+        
+
 
         
 
@@ -158,7 +160,7 @@
                   colspan="6"
                   class="empty-bill-cell"
                 >
-                  No bill items yet. Use Add Item or voice billing.
+                  Add Items to Inventory
                 </td>
 
               </tr>
@@ -170,37 +172,48 @@
         </div>
 
         <!-- ================= PAGINATION ================= -->
-
         <div class="pagination-container">
 
-          <div class="pagination-text">
-            Showing 3 of 3 products
-          </div>
+  <div class="pagination-text" id="showingProducts">
+    Showing 0 of 0 products
+  </div>
 
-          <div class="pagination-buttons">
+  <div class="pagination-buttons">
 
-            <button
-              class="pagination-btn"
-              type="button"
-            >
-              <img
-                src="../../assets/icons/left.png"
-                alt="Previous"
-              >
-            </button>
+    <button
+      class="pagination-btn"
+      id="previousPage"
+      type="button"
+      onclick="previousPage()"
+    >
+      <img
+        src="../../assets/icons/left.png"
+        alt="Previous"
+      >
+    </button>
 
-            <button
-              class="pagination-btn"
-              type="button"
-            >
-              <img
-                src="../../assets/icons/chevron.png"
-                alt="Next"
-              >
-            </button>
+    <button
+      class="pagination-btn"
+      id="nextPage"
+      type="button"
+      onclick="nextPage()"
+    >
+      <img
+        src="../../assets/icons/chevron.png"
+        alt="Next"
+      >
+    </button>
 
-          </div>
+  </div>
 
+</div>
+        
+
+
+        <div class="footer-section">
+          <footer>
+            <Span>Copyright @2026</Span>
+          </footer>
         </div>
 
       </div>

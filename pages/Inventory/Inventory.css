@@ -1211,6 +1211,8 @@ tbody tr:hover {
       1rem;
   }
 
+  
+
 
   .card_section {
     grid-template-columns:
@@ -1245,11 +1247,15 @@ tbody tr:hover {
       2rem;
   }
 
+  #backButton{
+    display:none;
+  }
 
   .inventory_section {
     padding:
       0
       1.5rem;
+      
   }
 
 
@@ -1279,6 +1285,9 @@ tbody tr:hover {
     margin: 0;
 
     border-radius: 0;
+  }
+  #backButton{
+    display:none;
   }
 
 
@@ -1321,6 +1330,9 @@ tbody tr:hover {
       0
       3rem
       2rem;
+  }
+  #backButton{
+    display:none;
   }
 
 }
