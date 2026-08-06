@@ -23,6 +23,10 @@
   overflow-y: scroll;
   /* scrollbar-color: #FFFFFF #0B8A6A ;
   scrollbar-width: thin; */
+  width: 100%;
+  min-width: 0;
+  padding-left: var(--sidebar-width);
+  transition: padding-left 0.3s ease;
 }
 
 .card-welcome {

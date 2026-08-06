@@ -51,20 +51,27 @@
                     alt="Start voice billing"
                   />
                 </button>
-                <p class="listening-timer" id="listeningTimer">00:00</p>
-                <p class="voice-button-text" id="listeningLabel">Listening...</p>
-
-                <p class="voice-button-text">
-                  Tap and speak item name and quantity
-                </p>
               </div>
+              <div class="voice-button-static">
+                  <p class="voice-text">
+                  Tap and speak item name and quantity
+                  </p>
+              </div>
+              <div class="voice-button-use">
+                  <div class="listening-timer-container">
+                    <p class="listening-timer" id="listeningTimerMinutes">00</p><p class="listening-timer">:</p><p class="listening-timer" id ="listeningTimerSeconds">00</p>
+                  </div>
+                  <p class="voice-text">Listening...</p>
+                  <button id="stopVoiceButton">Stop</button>
+              </div>
+              
             </div>
             <div class="voice-output-section">
               <div class="voice-output-container">
                 <span class="voice-output-label">WHAT I HEARD</span>
   
                 <p class="voice-output-text" id="voiceOutput">
-                  "2 Rice, 1 Sugar, 3 Milk"
+                  
                 </p>
   
                 <div class="inventory-status">
@@ -176,6 +183,9 @@
                   <p>Generate Bill</p>
                 </button>
               </div>
+            </div>
+            <div class="footer-gap">
+
             </div>
 
             <div class="footer-section">
@@ -597,13 +607,13 @@
     <dialog class="overlay" id="profileForm">
       <div class="pop-up">
         <h2>User Profile</h2>
-        <form id="addUserForm">
+        <form id="addUserForm" >
           <!-- <label for="userFirstName">First Name</label> -->
           <input type="text" id="userFirstName" placeholder="FirstName" required />
           <!-- <label for="userLastName">Last name</label> -->
           <input type="text" id="userLastName" placeholder="LastName" required />
           <!-- <label for="userNumber">Quantity</label> -->
-          <input type="text" id="userNumber" inputmode="numeric" pattern="[0-9]{10}" placeholder="Phone Number" required />
+          <input type="text" id="userNumber" inputmode="numeric" maxlength="10" placeholder="Phone Number" required />
   
           <input type="text" id="userEmail" inputmode="email" placeholder="E-mail" required />
           <!-- <label for="itemType">Type</label> -->

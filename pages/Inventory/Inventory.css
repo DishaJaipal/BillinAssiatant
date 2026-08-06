@@ -161,6 +161,8 @@ body {
   overflow-x: hidden;
 
   scrollbar-width: thin;
+  padding-left: var(--sidebar-width);
+  transition: padding-left 0.3s ease;
 }
 
 

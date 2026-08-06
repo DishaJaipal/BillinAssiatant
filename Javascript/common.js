@@ -1,7 +1,23 @@
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
-menuToggle.addEventListener("click", () => {
-  sidebar.classList.toggle("expanded");
+// const menuToggle = document.getElementById("menuToggle");
+// const sidebar = document.getElementById("sidebar");
+// menuToggle.addEventListener("click", () => {
+//   sidebar.classList.toggle("expanded");
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("sidebar");
+
+  if (!menuToggle || !sidebar) return;
+
+  menuToggle.addEventListener("click", () => {
+    const isExpanded = sidebar.classList.toggle("expanded");
+
+    document.body.classList.toggle(
+      "sidebar-is-expanded",
+      isExpanded
+    );
+  });
 });
 
 
@@ -14,12 +30,22 @@ const editButton = document.getElementById("editButton");
 
 const addUserForm=document.getElementById("addUserForm");
 
+const userFirstName = document.getElementById("userFirstName");
+const userLastName  = document.getElementById("userLastName");
+const userNumber    = document.getElementById("userNumber");
+const userEmail     = document.getElementById("userEmail");
+const gstID         = document.getElementById("gstID");
+
+// console.log("addUserForm:", addUserForm);
+// console.log("editButton:", editButton);
+// console.log("cancelUserPopupButton:", cancelUserPopupButton)
+
 // localStorage.setItem("profile", JSON.stringify({ first: "Disha", last: "Test" }));
 
 function setFieldsLocked(locked) {
   addUserForm.querySelectorAll("input").forEach(input => {
-    input.disabled = locked;
-  });
+      input.disabled = locked;
+    });
 }
 let fieldsLocked = false;
 
@@ -30,9 +56,11 @@ profileButtons.forEach(function(button){
     const saved = localStorage.getItem("profile");
 
     if(saved === null){
-      console.log("No profile data found in localStorage.");
+      console.log("No profile data found in localStorage.")
+      fieldsLocked=false;
       setFieldsLocked(fieldsLocked);
       editButton.textContent = "Save Details";
+      addUserForm.reset();
     }
     else{
       const profileData=JSON.parse(saved);
@@ -53,34 +81,41 @@ profileButtons.forEach(function(button){
   });
 });
 
-
+// editButton.addEventListener("click", () => {
+//   console.log("submit button clicked");
+// });
 
 // // let users=[]
 // // let edituser=null
 
-addUserForm.addEventListener("submit",function(event){
+addUserForm.addEventListener("submit", function(event) {
     event.preventDefault();
+    console.log("submit fired");
 
-    if (fieldsLocked) {
+    if (editButton.textContent === "Edit Details") {
       fieldsLocked = false;
-      setFieldsLocked(fieldsLocked);
+      setFieldsLocked(false);
       editButton.textContent = "Save Details";
       return;
     }
-    else{
-      const profileData={
-        first: document.getElementById("userFirstName").value.trim(),
-        last: document.getElementById("userLastName").value.trim(),
-        phn: Number(document.getElementById("userNumber").value.trim()),
-        email: document.getElementById("userEmail").value.trim(),
-        gstId: document.getElementById("gstID").value.trim(),
-        
-      };
-      localStorage.setItem("profile", JSON.stringify(profileData));
-      profileForm.close();
-    }
-});
 
+    // Save Details mode
+    const profileData = {
+      first: userFirstName.value.trim(),
+      last: userLastName.value.trim(),
+      phn: userNumber.value.trim(),
+      email: userEmail.value.trim(),
+      gstId: gstID.value.trim(),
+    };
+
+    console.log("Saving profile:", profileData);
+    localStorage.setItem("profile", JSON.stringify(profileData));
+
+    fieldsLocked = true;
+    setFieldsLocked(true);
+    editButton.textContent = "Edit Details";
+    profileForm.close();
+});
 
 profileForm.addEventListener("click", function (event) {
   if (event.target === profileForm) {
@@ -93,3 +128,12 @@ cancelUserPopupButton.addEventListener("click", function () {
 });
 
 JSON.parse(localStorage.getItem("profile"))
+
+// localStorage.removeItem("profile");
+
+const phoneInput = document.getElementById("userNumber");
+
+phoneInput.addEventListener("input", () => {
+  console.log("Phone value now:", phoneInput.value);
+  console.log("Length now:", phoneInput.value.length);
+});
